@@ -1,0 +1,36 @@
+{
+  "kind" : "collectionType",
+  "collectionName" : "actor",
+  "info" : {
+    "singularName" : "actor",
+    "pluralName": "actors",
+    "displayName": "Actor"
+  },
+  "options" : {
+    "draftAndPublish" : false
+  },
+  "attributes" : {
+    "name" : {
+      "type" : "string",
+      "required" : true
+    },
+
+    "last_name": {
+      "type": "string",
+      "required" : false
+    },
+
+    "birth_date": {
+      "type": "date",
+      "required" : false
+    },
+
+    "associated_movies" : {
+      "type": "relation",
+      "relation" : "manyToMany",
+      "target" : "api::external-data.movie",
+      "inversedBy" : "actors"
+    }
+  }
+
+}
