@@ -1,61 +1,114 @@
-# 🚀 Getting started with Strapi
+# CineVerse — Back-end (API Strapi)
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+## Objectif du back-end
+Le back-end du projet **CineVerse** a pour objectif de fournir une **API headless complète et sécurisée** pour la gestion des données cinématographiques.  
+Basé sur **Strapi**, il permet de :
 
-### `develop`
+- Centraliser les informations sur les **films**, **réalisateurs** et **acteurs** ;
+- Importer automatiquement des données depuis **The Movie Database (TMDb)** ;
+- Exposer ces données via des **endpoints** ;
+- Gérer les **rôles et permissions** selon le profil utilisateur ;
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Architecture du projet
+backend/
+├── node_modules/ → Dépendances installées par npm
+│
+├── public/ → Fichiers publics accessibles depuis l’API
+│ ├── robots.txt
+│ └── uploads/ → Médias importés (affiches, visuels)
+│
+├── src/
+│ ├── admin/ → Configuration de l’interface d’administration Strapi
+│ │ ├── app.example.tsx
+│ │ ├── tsconfig.json
+│ │ └── vite.config.example.ts
+│ │
+│ ├── api/ → Dossier principal des API Strapi
+│ │ ├── external-data/ → Schémas de données et types (Movie, Actor)
+│ │ │ ├── content-types/
+│ │ │ │ ├── actor/schema.json
+│ │ │ │ └── movie/schema.json
+│ │ │ └── types/types.ts
+│ │ │
+│ │ └── tmdb/ → Intégration avec l’API The Movie Database (TMDb)
+│ │ ├── controllers/tmdb.ts
+│ │ ├── routes/tmdb.ts
+│ │ └── services/tmdb.ts
+│ │
+│ ├── extensions/ → Extensions éventuelles ou plugins Strapi
+│ └── index.ts → Point d’entrée principal du serveur Strapi
+│
+├── types/
+│ └── generated/ → Types générés automatiquement par Strapi
+│ ├── components.d.ts
+│ └── contentTypes.d.ts
+│
+├── package.json → Dépendances et scripts npm
+├── package-lock.json → Verrouillage des versions
+├── tsconfig.json → Configuration TypeScript
 
+## Endpoints avec l'api TMDB
+1. Film Populaire  
+GET /movie/popular  
+2. Films par recherche  
+GET /search/movie  
+3. Détails d’un film + crédits  
+GET /movie/{movie_id}  
+4. Détails d’un acteur  
+GET /person/{person_id}  
+
+
+## Installation du projet  
+
+### 1. Cloner le dépôt  
+```bash
+git clone https://github.com/2025-10-CDA-ECO-P6/NNM-strapi-cinema.git
+cd backend
 ```
+
+### 2. Variables d'environnements
+Crée un fichier `.env` à la racine de `backend/` (ne pas le committer).  
+Exemple minimal pour un setup local **SQLite + TMDb** :
+
+```env
+# Réseau / serveur
+HOST=0.0.0.0  
+PORT=1337  
+URL=http://localhost:1337  
+
+# Base de données 
+DATABASE_CLIENT=sqlite  
+DATABASE_FILENAME=.tmp/data.db  
+
+# Intégration TMDb
+## Jeton d'accès en lecture
+TMDB_API_KEY=token_tmdb 
+## Base url de l'api
+TMDB_BASE_URL=https://api.themoviedb.org/3
+```
+
+### 3. Installer les dépendances
+```bash
+npm install
+```
+
+## Lancement du Strapi
+
+### En mode Dévellopement : Démarrage du serveur Strapi
+```bash
 npm run develop
-# or
-yarn develop
 ```
+Le serveur démarre sur (http://localhost:1337/admin)
 
-### `start`
-
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
-
-```
-npm run start
-# or
-yarn start
-```
-
-### `build`
-
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
+### 3. En mode production
+```bash
 npm run build
-# or
-yarn build
+npm start
 ```
 
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
+## Commande local pour les tests
+```bash
+npm run lint
+npm run test
+npm run build
 ```
-yarn strapi deploy
-```
-
-## 📚 Learn more
-
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
-
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
-
-## ✨ Community
-
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
-
----
-
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>

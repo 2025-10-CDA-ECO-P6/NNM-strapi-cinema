@@ -430,7 +430,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiExternalDataActor extends Struct.CollectionTypeSchema {
+export interface ApiTmdbActor extends Struct.CollectionTypeSchema {
   collectionName: 'actor';
   info: {
     displayName: 'Actor';
@@ -443,7 +443,7 @@ export interface ApiExternalDataActor extends Struct.CollectionTypeSchema {
   attributes: {
     associated_movies: Schema.Attribute.Relation<
       'manyToMany',
-      'api::external-data.movie'
+      'api::tmdb.movie'
     >;
     birth_date: Schema.Attribute.Date;
     createdAt: Schema.Attribute.DateTime;
@@ -451,10 +451,7 @@ export interface ApiExternalDataActor extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     last_name: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::external-data.actor'
-    > &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tmdb.actor'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
@@ -464,7 +461,7 @@ export interface ApiExternalDataActor extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiExternalDataMovie extends Struct.CollectionTypeSchema {
+export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
   collectionName: 'movie';
   info: {
     displayName: 'Movie';
@@ -475,16 +472,13 @@ export interface ApiExternalDataMovie extends Struct.CollectionTypeSchema {
     draftAndPublish: false;
   };
   attributes: {
-    actors: Schema.Attribute.Relation<'manyToMany', 'api::external-data.actor'>;
+    actors: Schema.Attribute.Relation<'manyToMany', 'api::tmdb.actor'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::external-data.movie'
-    > &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::tmdb.movie'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     realisator: Schema.Attribute.String;
@@ -1006,8 +1000,8 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
-      'api::external-data.actor': ApiExternalDataActor;
-      'api::external-data.movie': ApiExternalDataMovie;
+      'api::tmdb.actor': ApiTmdbActor;
+      'api::tmdb.movie': ApiTmdbMovie;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
       'plugin::i18n.locale': PluginI18NLocale;
