@@ -1,35 +1,40 @@
 {
   "kind" : "collectionType",
-  "collectionName" : "actor",
+  "collectionName" : "movie",
   "info" : {
-    "singularName" : "actor",
-    "pluralName": "actors",
-    "displayName": "Actor"
+    "singularName" : "movie",
+    "pluralName": "movies",
+    "displayName": "Movie"
   },
   "options" : {
     "draftAndPublish" : false
   },
   "attributes" : {
-    "name" : {
+    "title" : {
       "type" : "string",
       "required" : true
     },
 
-    "last_name": {
+    "description": {
       "type": "string",
       "required" : false
     },
 
-    "birth_date": {
+    "release_date": {
       "type": "date",
       "required" : false
     },
 
-    "associated_movies" : {
+    "realisator" : {
+      "type" : "string",
+      "required": false
+    },
+
+    "actors" : {
       "type": "relation",
       "relation" : "manyToMany",
-      "target" : "api::external-data.movie",
-      "inversedBy" : "actors"
+      "target" : "api::tmdb.actor",
+      "mappedBy" : "associated_movies"
     }
   }
 

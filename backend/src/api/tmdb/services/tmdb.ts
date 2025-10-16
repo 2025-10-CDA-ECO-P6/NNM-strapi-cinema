@@ -1,8 +1,10 @@
-// Bibliothèque axios pour faire des requêtes HTTP
-import axios from "axios";
+// Import de la factory Strapi pour créer un service personnalisé
+import { factories } from '@strapi/strapi';
+const axios = require('axios');
 
 // On exporte un objet (service Strapi) contenant une méthode asynchrone
-export default {
+export default factories.createCoreService('api::tmdb.movie', ({ strapi }) => ({
+
   //Fonction qui interroge l'API TMDb pour récupérer les films populaires
   async getPopularMovies() {
     // Récupération de la clé API depuis les variables d'environnement (.env)
@@ -35,4 +37,4 @@ export default {
       throw new Error("Impossible de contacter TMDb");
     }
   },
-};
+}));
