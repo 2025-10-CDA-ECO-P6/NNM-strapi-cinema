@@ -50,12 +50,12 @@ backend/
 ## Endpoints avec l'api TMDB
 1. Film Populaire  
 GET /movie/popular  
-2. Films par recherche
+2. Films par recherche  
 GET /search/movie  
 3. Détails d’un film + crédits  
-GET /movie/{movie_id}
-4. Détails d’un acteur
-GET /person/{person_id}
+GET /movie/{movie_id}  
+4. Détails d’un acteur  
+GET /person/{person_id}  
 
 
 ## Installation du projet  

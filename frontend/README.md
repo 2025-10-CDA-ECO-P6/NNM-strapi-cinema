@@ -21,7 +21,5 @@ frontend/
 │   ├──   scripts/           → Fichiers JavaScript (logique API, interactions)
 │   │   ├── api.js           → Fonctions pour consommer l’API Strapi
 │   │   └── ui.js            → Gestion des interactions front
-│   ├──   styles/            → Fichiers CSS et configuration Tailwind
-│   │   └── main.css
 │   ├── index.html            → Page d’entrée principale
 │   └── main.js               → Point d’entrée de l’application

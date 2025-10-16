@@ -12,7 +12,7 @@ L’API doit interagir avec **The Movie Database (TMDb)** afin d’importer auto
 API & back-office : Strapi (Node.js)  
 Données externes : TMDb API  
 CI/CD :	GitHub Actions (lint, tests, build)  
-Front-end vitrine : HTML5, CSS3, JavaScript ES6+, Tailwind CSS  
+Front-end vitrine : HTML5, CSS3, JavaScript
 Design & prototypage : Figma  
 Base de données : SQLite  
 
