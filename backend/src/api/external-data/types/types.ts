@@ -1,6 +1,3 @@
-import {DateTime} from "@strapi/types/dist/schema/attribute";
-import {date} from "yup";
-
 export interface Movie {
     id: number,
     title: string,
