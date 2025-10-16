@@ -13,6 +13,7 @@ module.exports = [
             'coverage/**',
             '*.config.js',
             '.tmp/**',
+            'src/admin/vite.config.example.ts',
         ],
     },
     {
