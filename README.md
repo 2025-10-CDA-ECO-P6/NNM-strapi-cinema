@@ -47,4 +47,10 @@ nnm-strapi-cinema/
 3. **Exécution des tests** (unitaires et fonctionnels)  
 4. **Build des projets** pour vérifier la stabilité  
 
+##  Husky
+
+Nous utilisons **Husky** pour automatiser certaines vérifications avant les commits, comme le lint et les tests.  
+Les hooks Git sont configurés pour s’exécuter **automatiquement** lors des actions Git, garantissant ainsi la qualité du code tout au long du développement. 
+
+
 
