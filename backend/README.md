@@ -112,3 +112,7 @@ npm run lint
 npm run test
 npm run build
 ```
+###  Husky
+
+Nous utilisons **Husky** pour exécuter automatiquement des vérifications (lint, formatage, tests, etc.) avant chaque commit.  
+Il s’active automatiquement lors des actions Git — aucune commande manuelle n’est nécessaire. 
