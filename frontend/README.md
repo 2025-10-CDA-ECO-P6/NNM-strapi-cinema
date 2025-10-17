@@ -10,16 +10,31 @@ Cette interface permet :
 - de **valoriser l’expérience utilisateur** à travers un design responsive et épuré.
 
 ---
+## Charte Graphique 
+![Charte Graphique](../docs/charte_graphique/Charte_graphique.jpg)
+
+## Charte Colorimétrique  
+1. Noir profond : #0C0C0C  
+2. Jaune cinéma : #FFD43B  
+3. Gris clair : #B0B0B0  
+4. Blanc cassé : #F5F5F5  
+5. Rouge foncé : #A4161A  
+
+## Charte Typographique 
+Titre : Poppins Bold  
+Texte : Roboto Regular  
+
+---
 
 ## Architecture du projet  
+```bash
 frontend/
-├── public/                → Ressources statiques (favicon, images)
-├──   src/
-│   ├──   assets/            → Images, polices, icônes
-│   ├──   components/        → Composants UI réutilisables (cartes, header, footer)
-│   ├──   pages/             → Pages principales (films, acteurs)
-│   ├──   scripts/           → Fichiers JavaScript (logique API, interactions)
-│   │   ├── api.js           → Fonctions pour consommer l’API Strapi
-│   │   └── ui.js            → Gestion des interactions front
-│   ├── index.html            → Page d’entrée principale
-│   └── main.js               → Point d’entrée de l’application
+├── src/
+│   ├── assets/            → Images, polices, icônes
+│   ├── components/        → Composants UI réutilisables (cartes, header, footer)
+│   ├── pages/             → Pages principales (films, acteurs)
+│   ├── scripts/           → Fichiers JavaScript (logique API, interactions)
+│   │   ├── api.js         → Fonctions pour consommer l’API Strapi
+│   │   └── ui.js          → Gestion des interactions front
+│   └── index.html         → Page d’entrée principale
+```
