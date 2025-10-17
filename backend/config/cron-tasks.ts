@@ -1,10 +1,10 @@
 export default {
   testJob: {
     task: async ({ strapi }) => {
-      console.log("✅ Cron job exécuté !");
+      console.log("✅ Cron job exécuté à 10h !");
     },
     options: {
-      rule: "*/1 * * * *", // toutes les minutes
+      rule: "0 10 * * *", // tous les jours à 10h00
     },
   },
 };
