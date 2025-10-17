@@ -10,6 +10,7 @@ Basé sur **Strapi**, il permet de :
 - Gérer les **rôles et permissions** selon le profil utilisateur ;
 
 ## Architecture du projet
+```bash
 backend/
 ├── node_modules/ → Dépendances installées par npm
 │
@@ -46,6 +47,8 @@ backend/
 ├── package.json → Dépendances et scripts npm
 ├── package-lock.json → Verrouillage des versions
 ├── tsconfig.json → Configuration TypeScript
+```
+--- 
 
 ## Endpoints avec l'api TMDB
 1. Film Populaire  
@@ -57,6 +60,7 @@ GET /movie/{movie_id}
 4. Détails d’un acteur  
 GET /person/{person_id}  
 
+--- 
 
 ## Installation du projet  
 
@@ -113,6 +117,5 @@ npm run test
 npm run build
 ```
 ###  Husky
-
 Nous utilisons **Husky** pour exécuter automatiquement des vérifications (lint, formatage, tests, etc.) avant chaque commit.  
 Il s’active automatiquement lors des actions Git — aucune commande manuelle n’est nécessaire. 

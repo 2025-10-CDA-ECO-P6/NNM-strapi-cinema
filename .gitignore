@@ -1,0 +1,4 @@
+# Ignore les métadonnées Windows
+*.Zone.Identifier
+*.DS_Store
+Thumbs.db
