@@ -484,6 +484,7 @@ export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
     realisator: Schema.Attribute.String;
     release_date: Schema.Attribute.Date;
     title: Schema.Attribute.String & Schema.Attribute.Required;
+    tmdb_id: Schema.Attribute.Integer & Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

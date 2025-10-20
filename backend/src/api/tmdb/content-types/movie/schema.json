@@ -1,41 +1,38 @@
 {
-  "kind" : "collectionType",
-  "collectionName" : "movie",
-  "info" : {
-    "singularName" : "movie",
+  "kind": "collectionType",
+  "collectionName": "movie",
+  "info": {
+    "singularName": "movie",
     "pluralName": "movies",
     "displayName": "Movie"
   },
-  "options" : {
-    "draftAndPublish" : false
+  "options": {
+    "draftAndPublish": false
   },
-  "attributes" : {
-    "title" : {
-      "type" : "string",
-      "required" : true
-    },
-
-    "description": {
+  "attributes": {
+    "title": {
       "type": "string",
-      "required" : false
+      "required": true
     },
-
+    "description": {
+      "type": "string"
+    },
     "release_date": {
-      "type": "date",
-      "required" : false
+      "type": "date"
     },
-
-    "realisator" : {
-      "type" : "string",
-      "required": false
+    "realisator": {
+      "type": "string"
     },
-
-    "actors" : {
+    "actors": {
       "type": "relation",
-      "relation" : "manyToMany",
-      "target" : "api::tmdb.actor",
-      "mappedBy" : "associated_movies"
+      "relation": "manyToMany",
+      "target": "api::tmdb.actor",
+      "mappedBy": "associated_movies"
+    },
+    "tmdb_id": {
+      "type": "integer",
+      "unique": true
     }
   }
-
 }
+
