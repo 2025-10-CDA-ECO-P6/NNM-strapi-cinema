@@ -1,0 +1,295 @@
+
+/* ================================
+   HEADER
+================================ */
+header {
+  background-color: #0C0C0C;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+}
+
+.logo img {
+  height: 60px;
+  display: block;
+}
+
+.borderheader {
+  border: 0;
+  height: 2px;
+  background: #A4161A ;
+  margin-top: 10px;
+}
+
+/* ----- Navigation ----- */
+.navbar ul {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar a:hover,
+.navbar a.active {
+  color: #ffcc00;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+/* Séparateur jaune entre les liens */
+.nav-links li:not(:last-child)::after {
+  content: "|";
+  color: #ffcc00;
+  margin-left: 25px;
+}
+
+/* Style général des liens */
+.nav-links a {
+  text-decoration: none;
+  color: #F5F5F5 ;
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 4px; 
+}
+
+/* Lien survolé */
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Lien actif  */
+.nav-links a.active {
+  color: #ffcc00;
+}
+
+/* Soulignement rouge animé sur le lien actif */
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: red;
+  border-radius: 1px;
+}
+
+/* ----- Burger menu (mobile) ----- */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background-color: #FFD43B ;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+/* Animation du burger actif */
+.burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+.burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* ----- Menu mobile ----- */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: #0d0d0d;
+  width: 100%;
+  padding: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center; 
+  margin-bottom: 10px;
+}
+
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffcc00; 
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.search-btn:hover {
+  transform: scale(1.1);
+}
+
+.mobile-search input {
+  background-color: #F5F5F5 ;
+  border: none;
+  border-radius: 25px;
+  height: 34px;
+  width: 280px;
+  padding: 0 15px;
+}
+
+
+.mobile-menu ul {
+  list-style: none;
+}
+
+.mobile-menu li {
+  margin: 10px 0;
+}
+
+.mobile-menu a {
+  color: #F5F5F5;
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: none; 
+}
+
+.mobile-menu a.active {
+  position: relative;
+  color: #ffcc00;
+  display: inline-block;
+  padding-bottom: 6px;
+}
+
+.mobile-menu a.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 550%;
+  height: 3px;
+  background-color: #A4161A ;
+  border-radius: 2px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+  .navbar {
+    display: none;
+  }
+
+  .search-icon {
+    display: none;
+  }
+
+  .burger {
+    display: flex;
+  }
+}
+
+/* ===========================
+   RECHERCHE HEADER
+=========================== */
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+}
+
+/* Loupe jaune */
+.search-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #ffcc00; 
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  padding: 0;
+  margin: 0;
+  transition: transform 0.2s ease;
+}
+
+.search-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Champ de recherche blanc */
+.search-input {
+  background-color: #F5F5F5; 
+  border: none;
+  border-radius: 25px;
+  height: 34px;
+  width: 220px;
+  padding: 0 15px;
+  outline: none;
+  font-size: 0.9rem;
+  color: #000;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  transition: box-shadow 0.3s ease, width 0.3s ease;
+}
+
+/* Focus : halo jaune et expansion */
+.search-input:focus {
+  box-shadow: 0 0 0 2px #ffcc00;
+  width: 260px;
+}
+
+/* Conteneur header */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+
+/* ===========================
+   RESPONSIVE — CACHER RECHERCHE SUR MOBILE
+=========================== */
+@media (max-width: 768px) {
+  .search-wrapper {
+    display: none;
+  }
+}

@@ -35,8 +35,5 @@ frontend/
 │   ├── pages/             → Pages principales (films, acteurs)
 │   ├── scripts/           → JS (API, interactions)
 │   ├── styles/            → Feuilles de style globales et modulaires
-│   │   ├── main.css       → Fichier principal importé dans index.html
-│   │   ├── variables.css  → Couleurs, typographies, etc.
-│   │   └── components/    → CSS spécifiques (header.css, footer.css, etc.)
 │   └── index.html         → Page d’entrée principale
 ```
