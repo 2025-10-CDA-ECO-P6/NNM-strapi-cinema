@@ -466,7 +466,7 @@ export interface ApiTmdbActor extends Struct.CollectionTypeSchema {
 }
 
 export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
-  collectionName: 'movies';
+  collectionName: 'movie';
   info: {
     displayName: 'Movie';
     pluralName: 'movies';
@@ -477,7 +477,6 @@ export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
   };
   attributes: {
     actors: Schema.Attribute.Relation<'manyToMany', 'api::tmdb.actor'>;
-    background_image: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -485,7 +484,6 @@ export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tmdb.movie'> &
       Schema.Attribute.Private;
-    poster_image: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     realisator: Schema.Attribute.String;
     release_date: Schema.Attribute.Date;
