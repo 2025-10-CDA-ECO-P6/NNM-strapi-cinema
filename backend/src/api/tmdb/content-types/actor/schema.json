@@ -1,36 +1,42 @@
 {
-  "kind" : "collectionType",
-  "collectionName" : "actor",
-  "info" : {
-    "singularName" : "actor",
+  "kind": "collectionType",
+  "collectionName": "actors",
+  "info": {
+    "singularName": "actor",
     "pluralName": "actors",
     "displayName": "Actor"
   },
-  "options" : {
-    "draftAndPublish" : false
+  "options": {
+    "draftAndPublish": false
   },
-  "attributes" : {
-    "name" : {
-      "type" : "string",
-      "required" : true
+  "attributes": {
+    "full_name": {
+      "type": "string",
+      "required": true
     },
 
+    "name": {
+      "type": "string",
+      "required": true
+    },
     "last_name": {
       "type": "string",
-      "required" : false
+      "required": false
     },
-
+    "tmdb_actor_id": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
     "birth_date": {
-      "type": "date",
-      "required" : false
+      "type": "string",
+      "required": false
     },
-
-    "associated_movies" : {
+    "associated_movies": {
       "type": "relation",
-      "relation" : "manyToMany",
-      "target" : "api::tmdb.movie",
-      "inversedBy" : "actors"
+      "relation": "manyToMany",
+      "target": "api::tmdb.movie",
+      "inversedBy": "actors"
     }
   }
-
 }
