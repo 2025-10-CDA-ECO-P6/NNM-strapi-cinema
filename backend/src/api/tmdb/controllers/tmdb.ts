@@ -14,7 +14,7 @@ export default factories.createCoreController('api::tmdb.movie', ({ strapi }) =>
       // Appel du service TMDb pour récupérer les films populaires
       const movies = await strapi
         .service('api::tmdb.tmdb')
-        .getPopularMovies();
+        .syncDatabase();
 
       // Réponse HTTP 200 OK avec les données
       ctx.body = movies;

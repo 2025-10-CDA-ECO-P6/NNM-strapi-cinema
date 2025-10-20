@@ -431,7 +431,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 }
 
 export interface ApiTmdbActor extends Struct.CollectionTypeSchema {
-  collectionName: 'actor';
+  collectionName: 'actors';
   info: {
     displayName: 'Actor';
     pluralName: 'actors';
@@ -445,16 +445,20 @@ export interface ApiTmdbActor extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::tmdb.movie'
     >;
-    birth_date: Schema.Attribute.Date;
+    birth_date: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    full_name: Schema.Attribute.String & Schema.Attribute.Required;
     last_name: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tmdb.actor'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
+    tmdb_actor_id: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -462,7 +466,7 @@ export interface ApiTmdbActor extends Struct.CollectionTypeSchema {
 }
 
 export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
-  collectionName: 'movie';
+  collectionName: 'movies';
   info: {
     displayName: 'Movie';
     pluralName: 'movies';
@@ -473,6 +477,7 @@ export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
   };
   attributes: {
     actors: Schema.Attribute.Relation<'manyToMany', 'api::tmdb.actor'>;
+    background_image: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -480,11 +485,11 @@ export interface ApiTmdbMovie extends Struct.CollectionTypeSchema {
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tmdb.movie'> &
       Schema.Attribute.Private;
+    poster_image: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     realisator: Schema.Attribute.String;
     release_date: Schema.Attribute.Date;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    tmdb_id: Schema.Attribute.Integer & Schema.Attribute.Unique;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

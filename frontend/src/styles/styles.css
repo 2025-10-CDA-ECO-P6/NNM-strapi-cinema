@@ -1,0 +1,118 @@
+/* ================================
+   STYLES GLOBAUX DE BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #0C0C0C ;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+
+/* ================================
+   MAIN CONTENT
+================================ */
+
+.main-content {
+  background-color: #0C0C0C;
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  justify-content: center;
+  padding: 40px 0;   
+  text-align: center;
+}
+
+.img-placeholder {
+  width: 90%;
+  height: auto;
+  display: block;   
+  margin: 0 auto; 
+}
+
+
+/* ================================
+   BTN CALL TO ACTION
+================================ */
+.btn-cta {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #FFD43B;
+  color: #000000;
+  padding: 14px 36px; 
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700; 
+  font-size: 1.1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Effet hover */
+.btn-cta:hover {
+  background-color: #ffcc00;
+  transform: scale(1.05);
+}
+
+/* Pour centrer le bouton */
+.btn-cta.center {
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+}
+
+/* ================================
+   CAROUSEL STYLES
+================================ */
+.carousel-section {
+  width: 100%;
+  background-color: #0C0C0C;
+  padding: 40px 0;
+  z-index: 0;
+}
+
+.swiper {
+  width: 80%;
+  height: 320px;
+  margin: 0 auto;
+
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide img:hover {
+  transform: scale(1.05);
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffcc00; 
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #A4161A;
+}
