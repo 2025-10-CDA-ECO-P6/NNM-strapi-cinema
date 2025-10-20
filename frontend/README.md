@@ -31,10 +31,9 @@ Texte : Roboto Regular
 frontend/
 ├── src/
 │   ├── assets/            → Images, polices, icônes
-│   ├── components/        → Composants UI réutilisables (cartes, header, footer)
+│   ├── components/        → Composants UI (cartes, header, footer)
 │   ├── pages/             → Pages principales (films, acteurs)
-│   ├── scripts/           → Fichiers JavaScript (logique API, interactions)
-│   │   ├── api.js         → Fonctions pour consommer l’API Strapi
-│   │   └── ui.js          → Gestion des interactions front
+│   ├── scripts/           → JS (API, interactions)
+│   ├── styles/            → Feuilles de style globales et modulaires
 │   └── index.html         → Page d’entrée principale
 ```
