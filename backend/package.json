@@ -46,6 +46,11 @@
   },
   "strapi": {
     "uuid": "00ba17c0-122b-4fb0-b3d1-3bf9d270bf52",
-    "installId": "33ea454e9ce92db33a12380dc1c1886f7ae21f3f9f4b11a8470fe0077b21fb71"
+    "installId": "33ea454e9ce92db33a12380dc1c1886f7ae21f3f9f4b11a8470fe0077b21fb71",
+    "cli": {
+      "commands": {
+        "sync:tmdb": "src/admin/cli/commands/sync-tmdb"
+      }
+    }
   }
 }
