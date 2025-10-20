@@ -1,4 +1,3 @@
-// backend/config/server.ts
 import cronTasks from './cron-tasks';
 
 export default ({ env }) => ({
@@ -6,13 +5,13 @@ export default ({ env }) => ({
   port: env.int('PORT', 1337),
 
   app: {
-    // ✅ Strapi va lire automatiquement tes 4 clés définies dans .env (APP_KEYS=...)
+    //  Strapi va lire automatiquement les clés définies dans .env 
     keys: env.array('APP_KEYS'),
   },
 
   cron: {
-    // ✅ Active les tâches planifiées (cron jobs)
+    //  Active les tâches planifiées (cron jobs)
     enabled: true,
-    tasks: cronTasks, // Lie ton fichier cron-tasks.ts ici
+    tasks: cronTasks, // charge les tâches définies dans cron-tasks.ts
   },
 });
