@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <!-- MÉTADONNÉES DE BASE -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- INFORMATIONS SEO -->
+  <title>CineVerse — L’univers du cinéma à portée d’écran</title>
+  <meta name="description"
+    content="Découvrez CineVerse, la plateforme qui vous plonge dans l’univers du cinéma : films, acteurs, réalisateurs et histoires de tournage.">
+  <meta name="keywords" content="cinéma, films, acteurs, réalisateurs, CineVerse, catalogue cinéma, bandes-annonces">
+  <meta name="author" content="Équipe CineVerse · Simplon">
+
+  <!-- RÉSEAUX SOCIAUX (Open Graph) -->
+  <meta property="og:title" content="CineVerse — L’univers du cinéma à portée d’écran">
+  <meta property="og:description" content="Explorez le monde du cinéma à travers une expérience immersive.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cineverse.example.com/">
+  <meta property="og:image" content="./src/assets/CineVerse.png">
+
+  <!-- TWITTER CARD -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CineVerse — L’univers du cinéma à portée d’écran">
+  <meta name="twitter:description" content="Explorez le monde du cinéma à travers une expérience immersive.">
+  <meta name="twitter:image" content="./src/assets/CineVerse.png">
+
+  <!-- FAVICON  -->
+  <link rel="icon" type="image/jpeg" href="./src/assets/favicon.jpg">
+
+  <!-- POLICES GOOGLE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <!-- Icônes Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- FEUILLES DE STYLE -->
+  <link rel="stylesheet" href="./src/styles/styles.css">
+  <link rel="stylesheet" href="./src/styles/header.css">
+  <link rel="stylesheet" href="./src/styles/footer.css">
+  <link rel="stylesheet" href="./src/styles/home.css">
+
+  <!--  BALISES ACCESSIBILITÉ & LANGUE -->
+  <meta name="theme-color" content="#0C0C0C">
+  <!-- Projet étudiant - no index no follow -->
+  <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="header-container">
+      <a href="index.html" class="logo">
+        <img src="./src/assets/CineVerse.svg" alt="Logo CineVerse">
+      </a>
+
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#" class="active">Accueil</a></li>
+          <li><a href="#">Catalogue</a></li>
+          <li><a href="#">Artistes</a></li>
+          <li><a href="#">À propos</a></li>
+        </ul>
+      </nav>
+
+      <div class="search-wrapper">
+        <button class="search-btn" aria-label="Lancer la recherche">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input type="text" class="search-input" placeholder="Rechercher un film, un artiste..." aria-label="Rechercher">
+      </div>
+
+      <div class="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <div class="mobile-menu">
+      <div class="mobile-search">
+        <button class="search-btn">
+          <i class="fas fa-search"></i>
+        </button>
+        <input type="text" placeholder="Rechercher...">
+      </div>
+
+      <ul>
+        <li><a href="#" class="active">Accueil</a></li>
+        <li><a href="#">Catalogue</a></li>
+        <li><a href="#">Artistes</a></li>
+        <li><a href="#">À propos</a></li>
+      </ul>
+    </div>
+
+    <hr class="borderheader">
+  </header>
+
+
+
+
+  <!-- ===== MAIN ===== -->
+
+  <main>
+    <div class="main-content">
+      <div>
+        <img src="./src/assets/placeholder.webp" alt="" class="img-placeholder">
+      </div>
+      <button class="btn-cta center">EXPLORER LE CATALOGUE</button>
+
+      <section class="carousel-section">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 1"></div>
+            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 2"></div>
+            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 3"></div>
+            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 4"></div>
+          </div>
+
+          <!-- Boutons de navigation -->
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+
+          <!-- Pagination  -->
+          <div class="swiper-pagination"></div>
+        </div>
+      </section>
+  </main>
+
+
+
+
+  <!-- ===== FOOTER ===== -->
+<footer class="cv-footer">
+  <div class="cv-footer__top">
+
+    <div class="cv-footer__col cv-footer__col--nav">
+      <img src="./src/assets/CineVerse_black.svg" alt="CineVerse" class="cv-footer__logo--small">
+
+      <div class="cv-footer__col cv-footer__col--deco">
+        <span class="cv-footer__deco-line"></span>
+      </div>
+
+      <div class="cv-footer__nav">
+        <p class="cv-footer__nav-label"><strong>Navigation :</strong></p>
+        <ul class="cv-footer__nav-list">
+          <li><a class="is-active" href="#">Accueil</a></li>
+          <li><a href="#">Catalogue</a></li>
+          <li><a href="#">Artistes</a></li>
+          <li><a href="#">À propos</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cv-footer__col cv-footer__col--right">
+      <p class="cv-footer__tagline">Découvrez, explorez et partagez<br>votre amour du 7ᵉ art.</p>
+
+      <div class="cv-footer__socials" aria-label="Réseaux sociaux">
+        <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </div>
+
+      <a href="#" class="cv-footer__contact">
+        <span class="cv-footer__contact-slash">\</span>Contact
+      </a>
+    </div>
+  </div>
+
+  <!--  Mentions -->
+  <div class="cv-footer__legal">
+    <nav class="cv-footer__legal-links">
+      <a href="#">Mentions légales</a>
+      <span class="sep">|</span>
+      <a href="#">Politique de confidentialité</a>
+      <span class="sep">|</span>
+      <a href="#">Conditions d’utilisation</a>
+      <span class="sep">|</span>
+      <a href="#">Accessibilité</a>
+    </nav>
+  </div>
+
+  <!-- Copyright -->
+  <div class="cv-footer__bottom">
+    <p class="cv-footer__copy">© 2025 <strong>CineVerse</strong> — Projet alternants - Simplon</p>
+  </div>
+</footer>
+
+  <!-- ===== SCRIPTS ==== -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./src/scripts/burger.js"></script>
+  <script src="./src/scripts/initswiper.js"></script>
+</body>
+
+</html>
