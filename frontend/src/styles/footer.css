@@ -66,11 +66,11 @@
   color: var(--cv-red);
 }
 
-.cv-footer__nav-list a.is-active {
+.cv-footer__nav-list a.active {
   font-weight: 700;
 }
 
-.cv-footer__nav-list a.is-active::after {
+.cv-footer__nav-list a.active::after {
   content: "";
   position: absolute;
   left: 0;

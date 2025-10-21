@@ -13,10 +13,10 @@ document.addEventListener('DOMContentLoaded', ()=> {
       <div class="cv-footer__nav">
         <p class="cv-footer__nav-label"><strong>Navigation :</strong></p>
         <ul class="cv-footer__nav-list">
-          <li><a class="is-active" href="#">Accueil</a></li>
-          <li><a href="#">Catalogue</a></li>
-          <li><a href="#">Artistes</a></li>
-          <li><a href="#">À propos</a></li>
+          <li><a href="./index.html">Accueil</a></li>
+          <li><a href="./catalogue.html">Catalogue</a></li>
+          <li><a href="./artistes.html">Artistes</a></li>
+          <li><a href="./apropos.html">À propos</a></li>
         </ul>
       </div>
     </div>
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
         <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
       </div>
 
-      <a href="#" class="cv-footer__contact">
+      <a href="./contact.html" class="cv-footer__contact">
         <span class="cv-footer__contact-slash">\\</span>Contact
       </a>
     </div>
@@ -56,8 +56,22 @@ document.addEventListener('DOMContentLoaded', ()=> {
   </div>
             </div>
         `;
+        
 
     if(footerElement) {
         footerElement.innerHTML = footerElementContent;
+        
+      // === Marquer le lien actif selon la page ===
+    let currentPage = window.location.pathname.split("/").pop();
+    if (currentPage === "" || currentPage === "/") {
+      currentPage = "index.html";
     }
-})
+
+    footerElement.querySelectorAll(".cv-footer__nav-list a").forEach((link) => {
+      const href = link.getAttribute("href");
+      if (href && href.includes(currentPage)) {
+        link.classList.add("active");
+      }
+    });
+  }
+});
