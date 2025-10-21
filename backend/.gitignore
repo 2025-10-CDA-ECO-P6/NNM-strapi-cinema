@@ -135,3 +135,8 @@ build
 ../.idea/**
 ../.idea
 .vscode/
+# Fichiers et dossiers IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr

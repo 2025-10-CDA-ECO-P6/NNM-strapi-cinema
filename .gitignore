@@ -5,3 +5,9 @@ Thumbs.db
 
 .env
 frontend/config.js
+
+# Fichiers et dossiers IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
