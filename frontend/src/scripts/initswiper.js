@@ -1,5 +1,3 @@
-// src/scripts/initswiper.js
-
 export function initSwiper() {
   window.mySwiper = new Swiper(".mySwiper", {
     loop: false,
@@ -21,7 +19,7 @@ export function initSwiper() {
       0: {
         slidesPerView: 1,     // 1 seule slide visible sur mobile
         spaceBetween: 15,
-        centeredSlides: true, // centrée visuellement
+        centeredSlides: false, // centrée visuellement
       },
       768: {
         slidesPerView: 2,     // tablette
