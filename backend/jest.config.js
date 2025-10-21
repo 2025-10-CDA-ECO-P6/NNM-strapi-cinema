@@ -5,13 +5,18 @@ const tsJestTransformCfg = createDefaultPreset().transform;
 /** @type {import("jest").Config} **/
 module.exports = {
   testEnvironment: "node",
-  roots: ["<rootDir>/tests"], //  Dossier où sont stockés les tests
+
+  //  Dossier racine des tests :
+  // roots: ["<rootDir>/tests"],
+
   moduleFileExtensions: ["js", "json", "ts"],
   transform: {
     ...tsJestTransformCfg,
   },
   verbose: true,
+
+  // 🧪 Collecte de la couverture de code
   collectCoverage: true,
-  collectCoverageFrom: ["scripts/**/*.js"], //  On mesure la couverture du script d'import
-  coverageDirectory: "coverage", //  Dossier de sortie
+  collectCoverageFrom: ["scripts/**/*.js"],
+  coverageDirectory: "coverage",
 };
