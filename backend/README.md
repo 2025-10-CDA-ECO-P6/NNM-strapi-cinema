@@ -119,3 +119,41 @@ npm run build
 ###  Husky
 Nous utilisons **Husky** pour exécuter automatiquement des vérifications (lint, formatage, tests, etc.) avant chaque commit.  
 Il s’active automatiquement lors des actions Git — aucune commande manuelle n’est nécessaire. 
+
+##  US-07 — Mise à jour périodique du catalogue
+
+Cette fonctionnalité permet de **mettre à jour automatiquement le catalogue de films** depuis l’API **TMDb** grâce à un **cron job** configuré dans Strapi.
+
+###  Fonctionnement
+- Un **cron job quotidien** lance automatiquement le script d’import.  
+- Le script récupère les films populaires depuis TMDb.  
+- Les **nouveaux films** sont ajoutés dans Strapi sans écraser les existants.  
+- Un **journal** dans la console indique les ajouts et les doublons.  
+
+###  Fichiers impliqués
+- `config/cron-tasks.js` → planification du cron job  
+- `scripts/updateCatalog.js` → logique d’import des films  
+- `config/server.ts` → activation du cron dans Strapi  
+
+###  Résultat attendu
+Le catalogue est automatiquement tenu à jour chaque jour, sans intervention manuelle, tout en évitant les doublons.
+
+## Tests unitaires
+
+Les tests vérifient le bon fonctionnement du script **`updateCatalog.js`**, qui met à jour le catalogue de films depuis l’API TMDb.  
+Ils utilisent **Jest** pour exécuter les tests et **Husky** pour les lancer avant chaque commit.
+
+###  Commandes
+```bash
+# Lancer les tests
+npx jest --runInBand --verbose
+
+# Voir la couverture de code
+npx jest --coverage
+```
+
+###  Vérifications
+
+- **Ajout d’un nouveau film** s’il n’existe pas  
+- **Ignorer les films** déjà présents  
+- **Gestion propre des erreurs API**
