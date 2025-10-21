@@ -4,6 +4,11 @@
   padding: 2rem 1rem;
 }
 
+.artiste-title {
+  font-size: 5rem;
+  text-align: center;
+}
+
 .artiste-list {
   list-style: none;
   display: grid;
