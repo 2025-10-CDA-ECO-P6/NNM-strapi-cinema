@@ -16,7 +16,7 @@ export default async (policyContext, config, { strapi }) => {
     const decoded = await strapi.plugins['users-permissions'].services.jwt.verify(token);
     ctx.state.user = decoded;
     return true; // Autorise l’accès
-  } catch (err) {
+  } catch {
     throw new UnauthorizedError('Invalid or expired token');
   }
 };
