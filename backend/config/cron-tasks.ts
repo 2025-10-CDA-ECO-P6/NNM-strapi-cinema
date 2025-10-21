@@ -21,7 +21,7 @@ export default {
     },
 
     options: {
-      // 🕒 Toutes les minutes (pour test)
+     // 🕒 Tous les jours à 3h du matin (heure serveur)
       rule: "0 3 * * *",
     },
   },
