@@ -68,31 +68,35 @@
 
   <main>
     <div class="main-content">
-      <div>
-        <img src="./src/assets/placeholder.webp" alt="" class="img-placeholder">
+      <div class="featured-container">
+        <img id="featured-movie" src="" alt="Affiche du film en vedette" class="img-placeholder">
+        <div class="featured-overlay">
+          <p class="featured-label">Dernière sortie</p>
+          <h2 class="featured-title"></h2>
+          <p class="featured-date"></p>
+        </div>
       </div>
       <button class="btn-cta center">EXPLORER LE CATALOGUE</button>
 
       <section class="carousel-section">
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 1"></div>
-            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 2"></div>
-            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 3"></div>
-            <div class="swiper-slide"><img src="./src/assets/placeholder.webp" alt="Film 4"></div>
+
+            <div class="swiper-slide">
+              <div class="slide-content">
+                <img src="" alt="">
+                <h3 class="slide-title"></h3>
+              </div>
+            </div>
           </div>
 
-          <!-- Boutons de navigation -->
           <div class="swiper-button-next"></div>
           <div class="swiper-button-prev"></div>
-
-          <!-- Pagination  -->
           <div class="swiper-pagination"></div>
         </div>
       </section>
     </div>
   </main>
-
 
 
 
