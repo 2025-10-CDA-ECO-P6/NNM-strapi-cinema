@@ -157,3 +157,52 @@ npx jest --coverage
 - **Ajout d’un nouveau film** s’il n’existe pas  
 - **Ignorer les films** déjà présents  
 - **Gestion propre des erreurs API**
+
+## US-08 : Authentification API
+
+### Objectif
+Permettre l’accès sécurisé à l’API uniquement aux utilisateurs authentifiés via un **token JWT**, afin de protéger les données internes de l’application Strapi.
+
+---
+
+### Fonctionnement général
+L’authentification repose sur le **système JWT natif de Strapi**.  
+Lorsqu’un utilisateur se connecte, le serveur génère un **token unique et temporaire**.  
+Ce token doit ensuite être transmis dans les requêtes pour accéder aux endpoints protégés.
+
+---
+
+###  Processus d’authentification
+1. **Connexion utilisateur** :  
+   L’utilisateur envoie ses identifiants (email + mot de passe) au point d’entrée `/api/auth/local`.  
+   Strapi vérifie les informations et retourne un **JWT**.
+
+2. **Utilisation du token** :  
+   Pour chaque requête à une route protégée, le client ajoute dans l’en-tête HTTP :  
+   `Authorization: Bearer <jwt_token>`
+
+3. **Validation automatique** :  
+   Strapi vérifie la validité du token :  
+   - S’il est valide → accès autorisé.  
+   - S’il est expiré, manquant ou invalide → réponse `401 Unauthorized`.
+
+---
+
+### Sécurisation des routes
+Certaines routes (comme `/api/tmdb/secure-popular`) sont configurées pour exiger une authentification.  
+Seuls les utilisateurs connectés peuvent y accéder.  
+Les routes publiques restent disponibles sans token.
+
+---
+
+### Gestion des tokens
+Les **tokens expirés** sont automatiquement invalidés par Strapi selon la configuration du projet.  
+Un utilisateur doit alors se reconnecter pour obtenir un nouveau token.
+
+---
+
+### Résultat attendu
+- Les endpoints sensibles sont protégés.  
+- Un utilisateur non authentifié reçoit une erreur `401 Unauthorized`.  
+- Un utilisateur authentifié accède normalement aux données.  
+- Les échanges entre client et serveur sont sécurisés par le système JWT.
