@@ -2,3 +2,6 @@
 *.Zone.Identifier
 *.DS_Store
 Thumbs.db
+
+.env
+frontend/config.js
