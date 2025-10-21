@@ -12,7 +12,7 @@
     "start": "strapi start",
     "strapi": "strapi",
     "lint": "eslint . --ext .ts,.js",
-    "test": "jest --passWithNoTests",
+    "test": "jest --detectOpenHandles --forceExit --passWithNoTests",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "prepare": "husky"
