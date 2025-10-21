@@ -8,7 +8,7 @@ const API_URL = `${API_BASE_URL}/api/tmdb/api_popular`;
 export async function getPopularMoviesFromDB() {
   try {
     // Log pour vérifier dans la console pour le fetch
-    console.log("Fetching depuis :", API_URL);
+    // console.log("Fetching depuis :", API_URL);
 
     // Requête à Strapi (fetch = aller chercher des données sur le serveur)
     const response = await fetch(API_URL);
@@ -20,7 +20,7 @@ export async function getPopularMoviesFromDB() {
     const data = await response.json();
 
     // Log reception des données
-    console.log("Films reçus :", data);
+    // console.log("Films reçus :", data);
 
     // Return tableau de films 
     return data;
