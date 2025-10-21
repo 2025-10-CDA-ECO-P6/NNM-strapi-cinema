@@ -57,57 +57,8 @@
 <body>
 
   <!-- ===== HEADER ===== -->
+
   <header class="header">
-    <div class="header-container">
-      <a href="index.html" class="logo">
-        <img src="./src/assets/CineVerse.svg" alt="Logo CineVerse">
-      </a>
-
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li><a href="#" class="active">Accueil</a></li>
-          <li><a href="#">Catalogue</a></li>
-          <li><a href="#">Artistes</a></li>
-          <li><a href="#">À propos</a></li>
-        </ul>
-      </nav>
-
-      <div class="search-wrapper">
-        <button class="search-btn" aria-label="Lancer la recherche">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Rechercher un film, un artiste..."
-          aria-label="Rechercher"
-        >
-      </div>
-
-      <div class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-    <div class="mobile-menu">
-      <div class="mobile-search">
-        <button class="search-btn">
-          <i class="fas fa-search"></i>
-        </button>
-        <input type="text" placeholder="Rechercher...">
-      </div>
-
-      <ul>
-        <li><a href="#" class="active">Accueil</a></li>
-        <li><a href="#">Catalogue</a></li>
-        <li><a href="#">Artistes</a></li>
-        <li><a href="#">À propos</a></li>
-      </ul>
-    </div>
-
-    <hr class="borderheader">
   </header>
 
 
@@ -122,96 +73,41 @@
         <div class="featured-overlay">
           <p class="featured-label">Dernière sortie</p>
           <h2 class="featured-title"></h2>
-          <p class="featured-date"></p> 
+          <p class="featured-date"></p>
         </div>
       </div>
       <button class="btn-cta center">EXPLORER LE CATALOGUE</button>
 
-<section class="carousel-section">
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
+      <section class="carousel-section">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
 
-      <div class="swiper-slide">
-        <div class="slide-content">
-          <img src="" alt="">
-          <h3 class="slide-title"></h3>
+            <div class="swiper-slide">
+              <div class="slide-content">
+                <img src="" alt="">
+                <h3 class="slide-title"></h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
-      </div>
+      </section>
     </div>
-
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-
   </main>
 
 
 
-
   <!-- ===== FOOTER ===== -->
-  <footer class="cv-footer">
-    <div class="cv-footer__top">
-
-      <div class="cv-footer__col cv-footer__col--nav">
-        <img src="./src/assets/CineVerse_black.svg" alt="CineVerse" class="cv-footer__logo--small">
-
-        <div class="cv-footer__col cv-footer__col--deco">
-          <span class="cv-footer__deco-line"></span>
-        </div>
-
-        <div class="cv-footer__nav">
-          <p class="cv-footer__nav-label"><strong>Navigation :</strong></p>
-          <ul class="cv-footer__nav-list">
-            <li><a class="is-active" href="#">Accueil</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">Artistes</a></li>
-            <li><a href="#">À propos</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="cv-footer__col cv-footer__col--right">
-        <p class="cv-footer__tagline">Découvrez, explorez et partagez<br>votre amour du 7ᵉ art.</p>
-
-        <div class="cv-footer__socials" aria-label="Réseaux sociaux">
-          <a href="#" aria-label="X / Twitter"><i class="fab fa-x-twitter"></i></a>
-          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-          <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        </div>
-
-        <a href="#" class="cv-footer__contact">
-          <span class="cv-footer__contact-slash">\</span>Contact
-        </a>
-      </div>
-    </div>
-
-    <!--  Mentions -->
-    <div class="cv-footer__legal">
-      <nav class="cv-footer__legal-links">
-        <a href="#">Mentions légales</a>
-        <span class="sep">|</span>
-        <a href="#">Politique de confidentialité</a>
-        <span class="sep">|</span>
-        <a href="#">Conditions d’utilisation</a>
-        <span class="sep">|</span>
-        <a href="#">Accessibilité</a>
-      </nav>
-    </div>
-
-    <!-- Copyright -->
-    <div class="cv-footer__bottom">
-      <p class="cv-footer__copy">© 2025 <strong>CineVerse</strong> — Projet alternants - Simplon</p>
-    </div>
-  </footer>
+<footer class="cv-footer">
+</footer>
 
   <!-- ===== SCRIPTS ==== -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script type="module">
-    import "./src/scripts/ui/search.js";
-    </script>
+  <script src="./src/scripts/header.js"></script>
+  <script src="./src/scripts/footer.js"></script>
   <script src="./src/scripts/burger.js"></script>
   <script src="./src/scripts/initswiper.js"></script>
   <script type="module">
