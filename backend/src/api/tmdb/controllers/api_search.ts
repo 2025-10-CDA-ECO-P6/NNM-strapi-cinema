@@ -1,65 +1,69 @@
-// Factory de Strapi = Contrôleur personnalisé
 import { factories } from "@strapi/strapi";
-// Typage du contexte de requête (ctx)
+// serveur interne Koa strapi pour requete http et context = typage
 import { Context } from "koa";
-// Typage données (films, acteurs)
-import { MovieDto, ActorDto } from "../types/types";
 
+// Contrôleur pour gérer la recherche (films + acteurs)
 export default factories.createCoreController("api::tmdb.movie", ({ strapi }) => ({
-
-  // Méthode personnalisée : /api/search
-  // Recherche simultanée dans les films et les acteurs
   async apiSearch(ctx: Context) {
     try {
       const { q } = ctx.query;
 
+      // --- Vérification du paramètre ---
+      // Vérifier que le paramètre de requête 'q' est bien présent et valide
       if (!q || typeof q !== "string" || q.trim() === "") {
         ctx.status = 400;
-        ctx.body = { error: "Le paramètre 'q' est requis pour la recherche." };
+        ctx.body = { error: "Le paramètre 'q' est requis." };
         return;
       }
 
-      const query = q.trim().toLowerCase();
+      // Nettoyage du texte saisi
+      const query = q.trim();
 
-      // === Recherche des films ===
-      const movies: MovieDto[] = await strapi.db.query("api::tmdb.movie").findMany({
+      // --- Recherche de films ---
+      // Interroge la table des films via le content-type `tmdb.movie`
+      // Recherche uniquement titre 
+      // (recherche insensible à la casse avec $containsi).
+      const movies = await strapi.db.query("api::tmdb.movie").findMany({
         where: {
-          $or: [
-            { title: { $containsi: query } },
-            { description: { $containsi: query } },
-            { realisator: { $containsi: query } },
-          ],
+          // containsi = strapi operator pour recherche insensible à la casse
+          title: { $containsi: query },
         },
         select: [
           "id",
           "title",
-          "description",
           "release_date",
           "realisator",
           "poster_image",
           "background_image",
         ],
-        limit: 15,
+        limit: 20, // limite resultat pour perf
       });
 
-      // === Recherche des acteurs ===
-      const actors: ActorDto[] = await strapi.db.query("api::tmdb.actor").findMany({
+      // --- Recherche d’acteurs ---
+      // Logique modèle `tmdb.actor`.
+      // Cherche dans name, last_name et full_name.
+      const actors = await strapi.db.query("api::tmdb.actor").findMany({
         where: {
           $or: [
             { name: { $containsi: query } },
             { last_name: { $containsi: query } },
+            { full_name: { $containsi: query } },
           ],
         },
         select: [
+          "id",
           "tmdb_actor_id",
           "name",
           "last_name",
+          "full_name",
           "birth_date",
         ],
-        limit: 15,
+        limit: 20,
       });
 
-      // === Réponse structurée ===
+      // --- Réponse structurée ---
+      // Renvoie dans un seul objet
+      // afficher résultats sous deux sections distinctes (films / artistes).
       ctx.body = {
         query,
         movies,
@@ -68,6 +72,7 @@ export default factories.createCoreController("api::tmdb.movie", ({ strapi }) =>
         total_actors: actors.length,
       };
     } catch (error: any) {
+      // Gestion des erreurs serveur (requête, BDD, etc.)
       ctx.status = 500;
       ctx.body = { error: error.message };
     }

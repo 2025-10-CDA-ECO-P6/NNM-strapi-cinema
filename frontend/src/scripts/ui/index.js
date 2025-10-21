@@ -64,10 +64,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   // === 2. Création carrousel Swiper ===
   const carouselContainer = document.querySelector(".swiper-wrapper");
 
-  // Probleme d'images pour certains films → filtre uniquement film avec img valide
-  const validMovies = movies.filter(
-    (movie) => movie.background_image && movie.background_image.trim() !== ""
-  );
+// Filtre uniquement les films avec affiche valide
+const validMovies = movies.filter(
+  (movie) => movie.poster_image && movie.poster_image.trim() !== ""
+);
 
   // Limite 10 films max
   validMovies.slice(1, 20).forEach((movie) => {
@@ -87,7 +87,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
 
     // Image + titre du film dans HTML du slide
-    const poster = `https://image.tmdb.org/t/p/w780${movie.background_image}`;
+    const poster = movie.poster_image
+      ? `https://image.tmdb.org/t/p/w500${movie.poster_image}`
+      : "./src/assets/placeholder.webp";
     slide.innerHTML = `
       <div class="slide-content">
         <img src="${poster}" alt="${movie.title}">
