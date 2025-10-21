@@ -20,10 +20,10 @@ export default factories.createCoreController('api::tmdb.movie', ({ strapi }) =>
 
       // Réponse HTTP 200 OK avec les données
       ctx.body = movies;
-    } catch (err) {
+    } catch (error) {
       // Gestion d'erreur : code 500 et message détaillé
       ctx.status = 500;
-      ctx.body = { error: err.message };
+      ctx.body = { error: (error as Error).message };
     }
   },
 
@@ -41,13 +41,10 @@ export default factories.createCoreController('api::tmdb.movie', ({ strapi }) =>
       }
 
       const token = authHeader.split(' ')[1];
-      try {
-        // Vérifie la validité du token JWT
-        const decoded = await strapi.plugins['users-permissions'].services.jwt.verify(token);
-        ctx.state.user = decoded;
-      } catch (err) {
-        throw new UnauthorizedError('Invalid or expired token');
-      }
+
+      // Vérifie la validité du token JWT
+      const decoded = await strapi.plugins['users-permissions'].services.jwt.verify(token);
+      ctx.state.user = decoded;
 
       // Si token valide → on récupère les films comme avant
       const movies = await strapi
@@ -58,10 +55,9 @@ export default factories.createCoreController('api::tmdb.movie', ({ strapi }) =>
         user: ctx.state.user, // facultatif : infos de l’utilisateur connecté
         movies,
       };
-
-    } catch (err) {
-      ctx.status = err.status || 401;
-      ctx.body = { error: err.message };
+    } catch (error) {
+      ctx.status = (error as any).status || 401;
+      ctx.body = { error: (error as Error).message };
     }
   },
 
