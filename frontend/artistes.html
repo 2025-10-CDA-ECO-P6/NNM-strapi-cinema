@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <!-- MÉTADONNÉES DE BASE -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- INFORMATIONS SEO -->
+    <title>CineVerse — L’univers du cinéma à portée d’écran</title>
+    <meta
+      name="description"
+      content="Découvrez CineVerse, la plateforme qui vous plonge dans l’univers du cinéma : films, acteurs, réalisateurs et histoires de tournage."
+    />
+    <meta
+      name="keywords"
+      content="cinéma, films, acteurs, réalisateurs, CineVerse, catalogue cinéma, bandes-annonces"
+    />
+    <meta name="author" content="Équipe CineVerse · Simplon" />
+
+    <!-- RÉSEAUX SOCIAUX (Open Graph) -->
+    <meta property="og:title" content="CineVerse — L’univers du cinéma à portée d’écran" />
+    <meta property="og:description" content="Explorez le monde du cinéma à travers une expérience immersive." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cineverse.example.com/" />
+    <meta property="og:image" content="./src/assets/CineVerse.png" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CineVerse — L’univers du cinéma à portée d’écran" />
+    <meta name="twitter:description" content="Explorez le monde du cinéma à travers une expérience immersive." />
+    <meta name="twitter:image" content="./src/assets/CineVerse.png" />
+
+    <!-- FAVICON  -->
+    <link rel="icon" type="image/jpeg" href="./src/assets/favicon.jpg" />
+
+    <!-- POLICES GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- FEUILLES DE STYLE -->
+    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <link rel="stylesheet" href="./src/styles/header.css" />
+    <link rel="stylesheet" href="./src/styles/footer.css" />
+    <link rel="stylesheet" href="./src/styles/home.css" />
+    <link rel="stylesheet" href="./src/styles/artistes.css" />
+
+    <!--  BALISES ACCESSIBILITÉ & LANGUE -->
+    <meta name="theme-color" content="#0C0C0C" />
+    <!-- Projet étudiant - no index no follow -->
+    <meta name="robots" content="noindex, nofollow" />
+  </head>
+
+  <body>
+    <!-- ===== HEADER ===== -->
+
+    <header class="header"></header>
+
+    <h1>Liste des artistes</h1>
+
+    <section id="artiste-section" class="artiste-section">
+        <ul id="artiste-list" class="artiste-list"></ul>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="cv-footer"></footer>
+
+    <!-- Script de la page -->
+    <script type="module" src="./src/scripts/services/artisteListService.js"></script>
+    <script type="module" src="./src/scripts/ui/search.js"></script>
+    <script type="module" src="./src/scripts/header.js"></script>
+    <script type="module" src="./src/scripts/footer.js"></script>
+  </body>
+</html>
