@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recherche – CineVerse</title>
+
+  <!-- CSS global -->
+  <link rel="stylesheet" href="./src/styles/search.css">
+  <link rel="stylesheet" href="./src/styles/styles.css">
+  <link rel="stylesheet" href="./src/styles/header.css">
+  <link rel="stylesheet" href="./src/styles/footer.css">
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header id="site-header">
+  </header>
+
+  <main class="container">
+    <h1 id="search-query">Résultats de recherche</h1>
+
+    <section class="results-block">
+      <h2>Films</h2>
+      <p id="count-films" class="count"></p>
+      <ul id="list-films" class="card-grid"></ul>
+    </section>
+
+    <section class="results-block">
+      <h2>Artistes</h2>
+      <p id="count-acteurs" class="count"></p>
+      <ul id="list-acteurs" class="card-grid"></ul>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="site-footer"></footer>
+
+  <!-- Script de la page -->
+  <script type="module" src="./src/scripts/ui/search.js"></script>
+</body>
+</html>
