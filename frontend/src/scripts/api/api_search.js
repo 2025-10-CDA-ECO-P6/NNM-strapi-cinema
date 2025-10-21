@@ -22,6 +22,7 @@ export async function searchAll(query) {
       movies: data.movies || [],
       actors: data.actors || [],
     };
+    
   } catch (error) {
     console.error("Erreur lors de la recherche :", error);
     return { movies: [], actors: [] };

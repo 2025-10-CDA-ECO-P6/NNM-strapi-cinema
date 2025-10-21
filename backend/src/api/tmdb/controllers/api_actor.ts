@@ -5,7 +5,7 @@ export default factories.createCoreController("api::tmdb.actor", ({ strapi }) =>
     try {
       const respons = await strapi.db.query("api::tmdb.actor").findMany({
         where: { full_name: { $notNull: true } },
-        orderBy: { full_name: "desc" },
+        orderBy: { full_name: "asc" },
         limit: 10,
       });
 

@@ -1,0 +1,62 @@
+#artiste-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.artiste-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 0;
+  margin: 2rem 2rem;
+}
+
+.artiste-card {
+  background: #1a1a1a;
+  color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.artiste-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+}
+
+.artiste-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.artiste-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+}
+
+.artiste-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .artiste-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .artiste-list {
+    grid-template-columns: 1fr;
+  }
+}
