@@ -1,25 +1,38 @@
- const swiper = new Swiper(".mySwiper", {
-    slidesPerView: 3,
+// src/scripts/initswiper.js
+
+export function initSwiper() {
+  window.mySwiper = new Swiper(".mySwiper", {
+    loop: false,
+    centeredSlides: false,
     spaceBetween: 30,
-    loop: true,
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
+    grabCursor: true,
+
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
     },
+
+    // Responsive : adapte automatiquement le nombre de slides visibles
     breakpoints: {
-      768: {
-        slidesPerView: 3,
+      0: {
+        slidesPerView: 1,     // 1 seule slide visible sur mobile
+        spaceBetween: 15,
+        centeredSlides: true, // centrée visuellement
       },
-      480: {
-        slidesPerView: 1,
+      768: {
+        slidesPerView: 2,     // tablette
+        spaceBetween: 25,
+        centeredSlides: false,
+      },
+      1024: {
+        slidesPerView: 3,     // desktop
+        spaceBetween: 30,
+        centeredSlides: false,
       },
     },
   });
+}
