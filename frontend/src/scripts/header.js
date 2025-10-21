@@ -50,6 +50,43 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
 
     if (headerElement) {
-        headerElement.innerHTML = headerHtmlContent;
+    headerElement.innerHTML = headerHtmlContent;
+    
+     // Burger menu 
+    const burger = headerElement.querySelector('.burger');
+    const mobileMenu = headerElement.querySelector('.mobile-menu');
+
+    if (burger && mobileMenu) {
+      burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        mobileMenu.classList.toggle('open');
+      });
     }
+  } 
+  
+  // === Search bar ===
+  const searchWrapper = headerElement.querySelector(".search-wrapper");
+  if (searchWrapper) {
+    const input = searchWrapper.querySelector(".search-input");
+    const button = searchWrapper.querySelector(".search-btn");
+
+    function goToSearch() {
+      const query = input.value.trim();
+      if (!query) return;
+      const encoded = encodeURIComponent(query);
+      window.location.href = "search.html?q=" + encoded;
+    }
+
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      goToSearch();
+    });
+
+    input.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        goToSearch();
+      }
+    });
+  }
 });

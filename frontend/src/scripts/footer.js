@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 
       <div class="cv-footer__nav">
         <p class="cv-footer__nav-label"><strong>Navigation :</strong></p>
-        <ul class="cv-footer__nav-list">footerElement
+        <ul class="cv-footer__nav-list">
           <li><a class="is-active" href="#">Accueil</a></li>
           <li><a href="#">Catalogue</a></li>
           <li><a href="#">Artistes</a></li>
