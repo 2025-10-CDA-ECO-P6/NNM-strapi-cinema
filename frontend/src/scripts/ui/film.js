@@ -61,15 +61,22 @@ function renderMovie(m) {
 
     ${m.actors?.length ? `
     <section class="film-actors">
-        <h2>Liste des acteurs</h2>
-        <ul class="actors-list">
+      <h2>Acteurs principaux</h2>
+      <ul class="actors-list">
         ${m.actors.map(a => `
-            <li class="actor-card">
-            <p>${a.name}${a.last_name ? ` ${a.last_name}` : ""}</p>
-            </li>
+          <li class="actor-card">
+            <div class="actor-photo">
+              <img src="${a.profile_path 
+                ? `https://image.tmdb.org/t/p/w185${a.profile_path}` 
+                : './src/assets/placeholder.webp'}" 
+                alt="${a.full_name}" 
+                onerror="this.src='./src/assets/placeholder.webp'">
+            </div>
+            <p class="actor-name">${a.full_name}</p>
+          </li>
         `).join("")}
-        </ul>
+      </ul>
     </section>
     ` : ""}
-    `;
+  `;
 }
