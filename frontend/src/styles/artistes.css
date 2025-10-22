@@ -1,151 +1,130 @@
-#artiste-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-#artiste-detail-section {
-  max-width: 1200px;
-  min-height: 65vh;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
 a {
   text-decoration: none;
   color: inherit;
 }
 
-.artiste-title {
-  font-size: 5rem;
-  text-align: center;
+.artiste-main {
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 50px;
 }
 
-.artiste-list {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 0;
-  margin: 2rem 2rem;
+@media (min-width: 768px) {
+  .artiste-main {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
 }
 
-.artiste-card {
-  background: #1a1a1a;
-  color: #fff;
-  border-radius: 12px;
-  overflow: hidden;
-  text-align: center;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+@media (min-width: 1200px) {
+  .artiste-main {
+    padding-left: 200px;
+    padding-right: 200px;
+  }
 }
 
-.artiste-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
-}
-
-.artiste-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 0.8rem;
-}
-
-.artiste-card h3 {
-  font-size: 1.1rem;
-  color: #ffcc00;
-  font-weight: 600;
-  margin-bottom: 0.4rem;
-}
-
-.artiste-card p {
-  font-size: 0.9rem;
-  color: #ccc;
-  margin: 0;
-}
-
-.artiste-detail-section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
+.artiste-header {
+  margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .artiste-detail-layout {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: flex-start;
-  min-height: 80vh;
-}
-
-.artiste-detail-left,
-.artiste-detail-right {
-  flex: 1;
-}
-
-.artiste-detail-right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding: 1rem;
-  align-content: start;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
 .artiste-detail-left {
-  justify-content: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  min-height: 80vh;
-}
-
-.film-card-placeholder {
-  background: #2b2b2b;
-  color: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  font-size: 1rem;
-}
-
-.artist-film-title {
-  grid-column: 1 / -1;
-  text-align: center;
-  font-size: 3rem;
 }
 
 .artist-title {
-  margin-top: 1rem;
-  margin-bottom: 1.4rem;
-  grid-column: 1 / -1;
+  color: #ffcc00;
+  text-transform: uppercase;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.artiste-info {
+  max-width: 250px;
   text-align: center;
-  font-size: 3rem;
 }
 
-@media (max-width: 900px) {
-  .artiste-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.artiste-info img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
 }
 
-@media (max-width: 768px) {
-  .artiste-list {
-    grid-template-columns: 1fr;
-  }
+.artiste-info h2 {
+  color: #ffcc00;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
 
-  .artiste-detail-right {
-    grid-template-columns: 1fr;
-  }
+.artiste-info p {
+  color: #ccc;
+  font-size: 0.9rem;
+}
 
-  .artiste-detail-layout {
-    flex-direction: column;
-  }
+.artiste-detail-right {
+  flex: 2;
+}
 
-  .artiste-detail-left,
-  .artiste-detail-right {
-    max-width: 100%;
-  }
+.artist-films-section {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.artist-film-title {
+  color: #ffcc00;
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.artist-films-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 25px;
+}
+
+.film-card {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.film-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(255, 204, 0, 0.25);
+}
+
+.film-card img {
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.film-card h4 {
+  color: #fff;
+  margin: 10px 0 5px;
+  text-align: center;
+}
+
+.film-card p {
+  color: #bbb;
+  font-size: 0.9rem;
+  text-align: center;
 }

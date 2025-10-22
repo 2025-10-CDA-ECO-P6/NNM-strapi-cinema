@@ -52,31 +52,47 @@ function renderMovie(m) {
         </div>
         <div class="film-meta">
           <h1>${m.title}</h1>
-          ${m.release_date ? `<p><strong>Sortie :</strong> ${new Date(m.release_date).toLocaleDateString("fr-FR")}</p>` : ""}
+          ${
+            m.release_date
+              ? `<p><strong>Sortie :</strong> ${new Date(m.release_date).toLocaleDateString("fr-FR")}</p>`
+              : ""
+          }
           ${m.realisator ? `<p><strong>Réalisateur :</strong> ${m.realisator}</p>` : ""}
           ${m.description ? `<p><strong>Description :</strong> ${m.description}</p>` : ""}
         </div>
       </div>
     </section>
 
-    ${m.actors?.length ? `
+    ${
+      m.actors?.length
+        ? `
     <section class="film-actors">
       <h2>Acteurs principaux</h2>
       <ul class="actors-list">
-        ${m.actors.map(a => `
+        ${m.actors
+          .map(
+            (a) => `
+          
           <li class="actor-card">
+          <a href="artiste-details.html?id=${a.id}">
             <div class="actor-photo">
-              <img src="${a.profile_path 
-                ? `https://image.tmdb.org/t/p/w185${a.profile_path}` 
-                : './src/assets/placeholder.webp'}" 
+              <img src="${
+                a.profile_path ? `https://image.tmdb.org/t/p/w185${a.profile_path}` : "./src/assets/placeholder.webp"
+              }" 
                 alt="${a.full_name}" 
                 onerror="this.src='./src/assets/placeholder.webp'">
             </div>
             <p class="actor-name">${a.full_name}</p>
+          <a /> 
           </li>
-        `).join("")}
+          
+        `
+          )
+          .join("")}
       </ul>
     </section>
-    ` : ""}
+    `
+        : ""
+    }
   `;
 }
