@@ -12,10 +12,20 @@
     "start": "strapi start",
     "strapi": "strapi",
     "lint": "eslint . --ext .ts,.js",
-    "test": "jest --detectOpenHandles --forceExit --passWithNoTests",
+    "test": "jest --forceExit --detectOpenHandles",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "prepare": "husky"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".tmp",
+      ".cache",
+      "/dist/"
+    ]
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.27.0",
