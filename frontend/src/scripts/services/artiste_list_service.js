@@ -1,4 +1,5 @@
 import { getArtistes } from "../api/api_artistes.js";
+import { createArtisteCard } from "../ui/artiste_card.js";
 
 async function showArtistesList() {
   const artistes = await getArtistes();
@@ -12,18 +13,10 @@ async function showArtistesList() {
   artistesListe.innerHTML = "";
 
   artistes.forEach((artiste) => {
+    const card = createArtisteCard(artiste, true);
+
     const li = document.createElement("li");
-    li.className = "artiste-card";
-
-    const img = document.createElement("img");
-    img.src = "./src/assets/placeholder.webp";
-    img.alt = artiste.full_name || "Photo de l'artiste";
-
-    const name = document.createElement("h3");
-    name.textContent = artiste.full_name || "Nom inconnu";
-
-    li.appendChild(img);
-    li.appendChild(name);
+    li.appendChild(card);
 
     artistesListe.appendChild(li);
   });

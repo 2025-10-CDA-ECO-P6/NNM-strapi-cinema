@@ -54,6 +54,7 @@
     <link rel="stylesheet" href="./src/styles/footer.css" />
     <link rel="stylesheet" href="./src/styles/home.css" />
     <link rel="stylesheet" href="./src/styles/artistes.css" />
+    <link rel="stylesheet" href="./src/styles/filmcard.css" />
 
     <!--  BALISES ACCESSIBILITÉ & LANGUE -->
     <meta name="theme-color" content="#0C0C0C" />
@@ -66,17 +67,13 @@
 
     <header class="header"></header>
 
-    <h1 class="artiste-title">Liste des Artistes</h1>
-
-    <section id="artiste-section" class="artiste-section">
-        <ul id="artiste-list" class="artiste-list">Chargement...</ul>
-    </section>
+    <section id="artiste-detail-section">Chargement...</section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="cv-footer"></footer>
 
     <!-- Script de la page -->
-    <script type="module" src="./src/scripts/services/artiste_list_service.js"></script>
+    <script type="module" src="./src/scripts/services/artiste_details_service.js"></script>
     <script type="module" src="./src/scripts/ui/search.js"></script>
     <script type="module" src="./src/scripts/header.js"></script>
     <script type="module" src="./src/scripts/footer.js"></script>
