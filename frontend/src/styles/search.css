@@ -7,6 +7,11 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 body {
   font-family: "Poppins", Arial, sans-serif;
   background-color: #0C0C0C ;
@@ -70,6 +75,14 @@ h1#search-query {
   cursor: pointer;
   display: flex;
   flex-direction: column;
+}
+
+.card-grid li a {
+  display: flex; 
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
 }
 
 .card-grid li:hover {

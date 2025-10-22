@@ -64,10 +64,14 @@ async function loadResults(q) {
       : null;
 
     return `
-      <li class="card actor-card">
-        ${hasPhoto ? `<img src="${profile}" alt="${a.full_name || `${a.name} ${a.last_name || ""}`}">` : ""}
-        <h3>${a.full_name || `${a.name} ${a.last_name || ""}`}</h3>
+    
+      <li class="actor-card">
+      <a href="artiste-details.html?id=${a.id}">
+      ${hasPhoto ? `<img src="${profile}" alt="${a.full_name || `${a.name} ${a.last_name || ""}`}">` : ""}
+      <h3>${a.full_name || `${a.name} ${a.last_name || ""}`}</h3>
+      </a>
       </li>
+      
     `;
   });
 

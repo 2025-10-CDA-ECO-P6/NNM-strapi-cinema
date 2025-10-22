@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- FEUILLES DE STYLE -->
-    <link rel="stylesheet" href="./src/styles/styles.css" />
+    <link rel="stylesheet" href="./src/styles/search.css" />
     <link rel="stylesheet" href="./src/styles/header.css" />
     <link rel="stylesheet" href="./src/styles/footer.css" />
     <link rel="stylesheet" href="./src/styles/home.css" />
@@ -66,11 +66,16 @@
 
     <header class="header"></header>
 
-    <h1 class="artiste-title">Liste des Artistes</h1>
+    <main class="artiste-main">
+      <div class="artiste-header">
+        <h1>Liste des artistes</h1>
+        <p class="artiste-subtitle">Découvrez les talents derrière vos films préférés</p>
+      </div>
 
-    <section id="artiste-section" class="artiste-section">
-        <ul id="artiste-list" class="artiste-list">Chargement...</ul>
-    </section>
+      <section id="artiste-section" class="artiste-section">
+        <ul id="list-acteurs" class="card-grid"></ul>
+      </section>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="cv-footer"></footer>
