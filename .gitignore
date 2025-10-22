@@ -19,3 +19,4 @@ frontend/config.js
 /target/
 /out/
 build/
+node_modules
