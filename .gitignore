@@ -5,3 +5,17 @@ Thumbs.db
 
 .env
 frontend/config.js
+# Dossiers générés par l'IDE
+.idea/
+
+# Fichiers de configuration de l'IDE
+*.iml
+*.iws
+*.ipr
+.project
+.classpath
+
+# Fichiers de compilation et de build (souvent ignorés)
+/target/
+/out/
+build/

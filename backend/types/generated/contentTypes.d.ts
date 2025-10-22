@@ -455,6 +455,7 @@ export interface ApiTmdbActor extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::tmdb.actor'> &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    profile_path: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     tmdb_actor_id: Schema.Attribute.Integer &
       Schema.Attribute.Required &

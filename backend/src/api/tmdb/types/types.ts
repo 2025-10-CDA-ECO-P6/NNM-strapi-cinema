@@ -14,13 +14,15 @@ export interface ActorInfoMap {
     tmdb_actor_id: number;
     name: string;
     last_name: string | null;
+    profile_path : string | null;
 }
 
 export interface ActorDto {
     tmdb_actor_id: number;
     name: string,
-    last_name  : string | null,
+    last_name?  : string | null,
     birth_date? : Date | null,
+    profile_path? : string | null,
     associated_movies: number[];
 }
 

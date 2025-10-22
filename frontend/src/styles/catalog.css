@@ -1,0 +1,121 @@
+.catalogue-main {
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+    .catalogue-main {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .catalogue-main {
+        padding-left: 200px;
+        padding-right: 200px;
+    }
+}
+.catalogue-header {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.catalogue-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+.movie-poster img {
+
+    width: 100%;
+    height: 95%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.movie-poster {
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+}
+
+@media (min-width: 501px) {
+    .catalogue-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 38px;
+    }
+
+    .movie-poster {
+        border-radius: 9px;
+        position: relative;
+        width: 100%;
+        height: 300px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #FFD43B;
+        margin-bottom: 10px;
+    }
+
+    .movie-poster img {
+        height: 105%;
+    }
+}
+
+
+.movie-poster:hover {
+    transform: translateY(-12px);
+    transition-duration: 200ms;
+    cursor: pointer;
+}
+
+.movie-card:hover .movie-info {
+    color: #FFD43B;
+    transition-duration: 200ms;
+}
+
+.movie-info {
+    margin-bottom: 10%;
+}
+.movie-title {
+    font-size: 16px;
+    margin-bottom: 6px;
+}
+.movie-meta {
+    display: flex;
+    font-size: 13px;
+    gap: 8px;
+}
+.btn-details {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.pagination-controls {
+    margin-top: 25px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn-pagination {
+    height: 41px;
+    border: none;
+    border-radius: 9px;
+    background-color: #FFD43B;
+    width: 103px;
+    padding: 10px 10px;
+}
+
+.btn-page-number {
+    background-color: #0C0C0C;
+    color:  #FFD43B;
+    border: none;
+
+
+}
