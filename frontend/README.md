@@ -36,7 +36,7 @@ frontend/
 ├── search.html             → Page de recherche
 ├── contact.html            → Page de contact
 ├── apropos.html            → Page "À propos"
-├── config.js               → Fichier de configuration globale (ex: base URL de l’API)
+├── config.js               → Fichier de configuration globale (base URL de l’API + base URL IMAGE TMDB )
 ├── README.md               → Documentation du front
 │
 └── src/
