@@ -22,17 +22,19 @@ let currentPage = 1;
 
         const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : 'N/A';
         const director = movie.realisator ? movie.realisator : 'N/A';
+        const movieId = movie.tmdb_id || movie.id;
 
         return `
              <div class="movie-card" data-movie-id="${movie.id}">
-            <div class="movie-poster">
-                <img src="${imagePath}" 
-                     alt="${movie.title}" 
-                     loading="lazy" onerror="this.src='${PLACEHOLDER_IMAGE}'
-                    ">
-                <div class="movie-overlay">
-                    
-                </div>
+                 <a href="./film.html?id=${movieId}">
+                    <div class="movie-poster">
+                        <img src="${imagePath}" 
+                            alt="${movie.title}" 
+                            loading="lazy" onerror="this.src='${PLACEHOLDER_IMAGE}'
+                            ">
+                        <div class="movie-overlay">   
+                    </div>
+                </a>
             </div>
             <div class="movie-info">
                 <h3 class="movie-title">${movie.title}</h3>
@@ -75,12 +77,11 @@ let currentPage = 1;
         catalogueContainer.innerHTML = movieToShow.map(movie => createMovieCard(movie)).join('');
 
         document.querySelectorAll('.movie-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                const movieId = parseInt(card.dataset.movieId);
-                const movie = allMovies.find(m => m.id === movieId);
-                if (movie) {
-                    openMovieModal(movie);
-                }
+            card.addEventListener('click', () => {
+            const movieId = parseInt(card.dataset.movieId);
+            if (movieId) {
+                window.location.href = `film.html?id=${movieId}`;
+            }
             });
         });
 
