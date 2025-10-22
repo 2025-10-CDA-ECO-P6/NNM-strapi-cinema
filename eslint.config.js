@@ -14,6 +14,7 @@ module.exports = [
       "*.config.js",
       ".tmp/**",
       "src/admin/vite.config.example.ts",
+      "frontend/**",
     ],
   },
   {
