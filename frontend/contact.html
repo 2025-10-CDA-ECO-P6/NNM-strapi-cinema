@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <!-- MÉTADONNÉES DE BASE -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- INFORMATIONS SEO -->
+    <title>CineVerse — L’univers du cinéma à portée d’écran</title>
+    <meta name="description"
+        content="Découvrez CineVerse, la plateforme qui vous plonge dans l’univers du cinéma : films, acteurs, réalisateurs et histoires de tournage.">
+    <meta name="keywords" content="cinéma, films, acteurs, réalisateurs, CineVerse, catalogue cinéma, bandes-annonces">
+    <meta name="author" content="Équipe CineVerse · Simplon">
+
+    <!-- RÉSEAUX SOCIAUX (Open Graph) -->
+    <meta property="og:title" content="CineVerse — L’univers du cinéma à portée d’écran">
+    <meta property="og:description" content="Explorez le monde du cinéma à travers une expérience immersive.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cineverse.example.com/">
+    <meta property="og:image" content="./src/assets/CineVerse.png">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CineVerse — L’univers du cinéma à portée d’écran">
+    <meta name="twitter:description" content="Explorez le monde du cinéma à travers une expérience immersive.">
+    <meta name="twitter:image" content="./src/assets/CineVerse.png">
+
+    <!-- FAVICON  -->
+    <link rel="icon" type="image/jpeg" href="./src/assets/favicon.jpg">
+
+    <!-- POLICES GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <!-- Icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- FEUILLES DE STYLE -->
+    <link rel="stylesheet" href="./src/styles/contact.css">
+    <link rel="stylesheet" href="./src/styles/header.css">
+    <link rel="stylesheet" href="./src/styles/footer.css">
+
+
+    <!--  BALISES ACCESSIBILITÉ & LANGUE -->
+    <meta name="theme-color" content="#0C0C0C">
+    <!-- Projet étudiant - no index no follow -->
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+    </header>
+
+
+    <!-- ===== MAIN ===== -->
+    <main>
+        <section class="contact-section" aria-labelledby="contact-title">
+            <h1 id="contact-title">Contact</h1>
+            <p class="contact-intro">Une question, une demande pro, un retour ? Écris-nous via ce formulaire.</p>
+
+            <form id="contactForm" class="contact-form" method="post" action="/api/contact" novalidate>
+
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="fullname">Nom complet <span aria-hidden="true" class="req">*</span></label>
+                        <input id="fullname" name="fullname" type="text" inputmode="text" autocomplete="name" required
+                            maxlength="80" placeholder="Ex. Toto Dupont">
+                        <small id="fullname-help" class="help">Entre 8 et 20 caractères.</small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Email <span aria-hidden="true" class="req">*</span></label>
+                        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" required
+                            placeholder="vous@exemple.com" maxlength="120">
+                        <small class="help">Nous ne partagerons jamais votre email.</small>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone">Téléphone (optionnel)</label>
+                        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel"
+                            placeholder="+33 6 12 34 56 78" pattern="^[0-9+().\s-]{7,20}$" maxlength="20">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="subject">Sujet <span aria-hidden="true" class="req">*</span></label>
+                        <input id="subject" name="subject" type="text" required maxlength="120"
+                            placeholder="Sujet de votre message">
+                    </div>
+
+                    <div class="form-field form-field--full">
+                        <label for="message">Message <span aria-hidden="true" class="req">*</span></label>
+                        <textarea id="message" name="message" required minlength="10" maxlength="2000" rows="8"
+                            placeholder="Votre message détaillé…"></textarea>
+                        <small class="help">10 à 2000 caractères.</small>
+                    </div>
+
+                    <div class="form-field form-field--full checkbox-field">
+                        <input type="checkbox" id="consent" name="consent" required>
+                        <label for="consent">J’accepte que mes informations soient traitées pour répondre à ma demande.
+                            <a href="/politique-confidentialite" target="_blank" rel="noopener">Politique de
+                                confidentialité</a>.</label>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitBtn" class="btn" aria-disabled="true" disabled>Envoyer</button>
+                    <p class="form-note">Les champs marqués d’un <span class="req">*</span> sont obligatoires.</p>
+                </div>
+
+                <!-- Zone d’annonces (erreurs/succès) -->
+                <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+            </form>
+        </section>
+    </main>
+    <!-- ===== FOOTER ===== -->
+    <footer class="cv-footer">
+    </footer>
+
+    <!-- ===== SCRIPTS ==== -->
+    <script src="./src/scripts/header.js"></script>
+    <script src="./src/scripts/footer.js"></script>
+</body>
