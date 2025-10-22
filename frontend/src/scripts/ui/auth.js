@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const showRegisterLink = document.getElementById("show-register");
   const showLoginLink = document.getElementById("show-login");
 
-  const API_URL = "http://localhost:1337/api/auth"; // 🔗 adapte si ton back tourne ailleurs
+  const API_URL = "http://localhost:1337/api/auth"; 
 
   // 🔁 Bascule entre les formulaires
   showRegisterLink.addEventListener("click", (e) => {
