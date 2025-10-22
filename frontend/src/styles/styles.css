@@ -28,7 +28,7 @@ ul {
   flex-direction: column; 
   align-items: center; 
   justify-content: center;
-  padding: 40px 0;   
+  padding: 10px 0;   
   text-align: center;
 }
 
@@ -80,7 +80,7 @@ ul {
 .swiper {
   width: 100%;
   max-width: 1500px;
-  margin: 60px auto;
+  /* margin: 60px auto; */
   padding-bottom: 50px;
   position: relative;
   overflow: hidden; 

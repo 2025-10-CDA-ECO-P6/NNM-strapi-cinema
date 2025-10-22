@@ -44,9 +44,11 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- FEUILLES DE STYLE -->
+    <link rel="stylesheet" href="./src/styles/film.css">
+    <link rel="stylesheet" href="./src/styles/styles.css">
     <link rel="stylesheet" href="./src/styles/header.css">
     <link rel="stylesheet" href="./src/styles/footer.css">
-    <link rel="stylesheet" href="./src/styles/apropos.css">
+
 
     <!--  BALISES ACCESSIBILITÉ & LANGUE -->
     <meta name="theme-color" content="#0C0C0C">
@@ -55,82 +57,46 @@
 </head>
 
 <body>
-
     <!-- ===== HEADER ===== -->
-
-    <header class="header">
-    </header>
+    <header class="header"></header>
 
 
-    <main class="main-apropos">
-        <h1>À propos du projet CineVerse</h1>
 
-        <section>
-            <h2>Contexte</h2>
-            <p>
-                <strong>CineVerse</strong> est un exercice d’alternance réalisé par des apprenants Simplon.
-                Le but est de créer une application web qui combine un back-end, une base de données,
-                et un front dynamique sans framework.
-            </p>
+    <main class="film-detail">
+        <!-- Bloc principal : image + infos -->
+        <section class="film-hero">
+            <div class="film-hero-bg">
+                <img id="film-background" alt="">
+            </div>
+
+            <div class="film-hero-overlay">
+                <div class="film-poster">
+                    <img id="film-poster" alt="">
+                </div>
+
+                <div class="film-meta">
+                    <h1 id="film-title"></h1>
+                    <p id="film-date"></p>
+                    <p id="film-director"></p>
+                    <p id="film-description"></p>
+                </div>
+            </div>
         </section>
 
-        <section>
-            <h2>Architecture du projet</h2>
-            <p>
-                Le site repose sur deux parties :
-            </p>
-            <ul>
-                <li><strong>Back-end (Strapi)</strong> : sert de CMS headless pour stocker les films, artistes et
-                    informations importées.</li>
-                <li><strong>Front-end (HTML / CSS / JS natif)</strong> : gère l’affichage des données via des appels à
-                    l’API Strapi.</li>
-            </ul>
+        <!-- Bloc des acteurs -->
+        <section class="film-actors">
+            <h2>Liste des acteurs</h2>
+            <ul id="film-actors" class="actors-list"></ul>
         </section>
-
-        <section>
-            <h2>Intégration avec TMDB</h2>
-            <p>
-                L’un des points techniques du projet a été l’intégration de l’API de <strong>TMDB (The Movie
-                    Database)</strong>.
-                Une fonction en JavaScript permet de récupérer les films (titre, affiche, résumé, note, etc.) depuis
-                TMDB,
-                puis de les importer automatiquement dans la base de données Strapi.
-            </p>
-            <p>
-                Une fois les films stockés, ils sont affichés sur le front à travers différentes pages :
-                page d’accueil, catalogue, et fiche détaillée d’un film.
-            </p>
-        </section>
-
-        <section>
-            <h2>Objectif pédagogique</h2>
-            <p>
-                Cet exercice a pour but de s’entraîner à :
-            </p>
-            <ul>
-                <li>Consommer une API externe et transformer les données reçues.</li>
-                <li>Automatiser l’insertion en base via le back-end Strapi.</li>
-                <li>Afficher ces données sur le front avec du JavaScript natif (DOM + Fetch).</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2>Récap technique</h2>
-            <ul>
-                <li>API externe : <strong>TMDB</strong></li>
-                <li>Back-end : <strong>Strapi</strong></li>
-                <li>Base de données : <strong>SQLite</strong></li>
-                <li>Front-end : <strong>HTML / CSS / JavaScript natif</strong></li>
-                <li>Objectif : affichage dynamique des films importés</li>
-            </ul>
-        </section>
-
     </main>
     <!-- ===== FOOTER ===== -->
     <footer class="cv-footer">
     </footer>
 
-    <!-- ===== SCRIPTS ==== -->
+    <!-- Script principal -->
     <script src="./src/scripts/header.js"></script>
     <script src="./src/scripts/footer.js"></script>
+    <script type="module" src="./src/scripts/ui/film.js"></script>
 </body>
+
+</html>

@@ -29,11 +29,53 @@ Texte : Roboto Regular
 ## Architecture du projet  
 ```bash
 frontend/
-├── src/
-│   ├── assets/            → Images, polices, icônes
-│   ├── components/        → Composants UI (cartes, header, footer)
-│   ├── pages/             → Pages principales (films, acteurs)
-│   ├── scripts/           → JS (API, interactions)
-│   ├── styles/            → Feuilles de style globales et modulaires
-│   └── index.html         → Page d’entrée principale
+├── index.html              → Page d’accueil
+├── catalogue.html          → Page du catalogue de films
+├── artistes.html           → Page des artistes
+├── film.html               → Page de détail d’un film
+├── search.html             → Page de recherche
+├── contact.html            → Page de contact
+├── apropos.html            → Page "À propos"
+├── config.js               → Fichier de configuration globale (ex: base URL de l’API)
+├── README.md               → Documentation du front
+│
+└── src/
+    ├── assets/             → Images et ressources graphiques (logos, favicon, etc.)
+    │   ├── CineVerse.png
+    │   ├── CineVerse.svg
+    │   ├── CineVerse_black.svg
+    │   ├── favicon.jpg
+    │   └── placeholder.webp
+    │
+    ├── scripts/            → Code JavaScript du projet
+    │   ├── api/            → Fonctions pour consommer l’API Strapi (films, artistes, recherche)
+    │   │   ├── api_artistes.js
+    │   │   ├── api_catalogue.js
+    │   │   ├── api_detail_movie.js
+    │   │   ├── api_index.js
+    │   │   └── api_search.js
+    │   │
+    │   ├── services/       → Fonctions utilitaires ou services spécifiques
+    │   │   └── artisteListService.js
+    │   │
+    │   ├── ui/             → Scripts d’interaction et de rendu côté interface
+    │   │   ├── film.js
+    │   │   ├── index.js
+    │   │   └── search.js
+    │   │
+    │   ├── header.js       → Injection dynamique du header commun
+    │   ├── footer.js       → Injection dynamique du footer commun
+    │   └── initswiper.js   → Initialisation du carrousel Swiper
+    │
+    └── styles/             → Feuilles de style globales et spécifiques à chaque page
+        ├── header.css
+        ├── footer.css
+        ├── home.css
+        ├── catalogue.css
+        ├── artistes.css
+        ├── film.css
+        ├── search.css
+        ├── contact.css
+        ├── apropos.css
+        └── styles.css      → Style global de base
 ```

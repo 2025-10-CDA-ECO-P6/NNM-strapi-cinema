@@ -1,0 +1,129 @@
+/* ================================
+   STYLES GLOBAUX DE BASE
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #0C0C0C ;
+  color: #fff;
+}
+
+ul {
+  list-style: none;
+}
+
+:root{
+    --cv-bg:#0e0e10;
+    --cv-panel:#16161a;
+    --cv-text:#eaeaea;
+    --cv-muted:#a9a9b3;
+    --cv-primary:#ffcc00; 
+    --cv-danger:#ff5a5a;
+    --cv-focus: 2px solid #ffcc00;
+    --cv-radius: 14px;
+    --cv-gap: 16px;
+    --cv-maxw: 900px;
+  }
+  .contact-section{
+    color: var(--cv-text);
+    padding: 40px 16px 72px;
+    display: grid;
+    place-items: center;
+  }
+  .contact-section h1{
+    font-size: clamp(1.8rem, 1.2rem + 2vw, 2.4rem);
+    margin: 0 0 8px;
+    text-align: center;
+  }
+  .contact-intro{
+    margin: 0 0 24px;
+    color: var(--cv-muted);
+    text-align: center;
+    max-width: 60ch;
+  }
+  .contact-form{
+    width: 100%;
+    max-width: var(--cv-maxw);
+    padding: clamp(16px, 2.5vw, 28px);
+  }
+  .form-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--cv-gap);
+  }
+  .form-field{ display:flex; flex-direction:column; gap:8px; }
+  .form-field--full{ grid-column: 1 / -1; }
+  label{ font-weight: 600; }
+  .req{ color: var(--cv-primary); font-weight: 700; }
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea{
+    background: var(--cv-panel);
+    color: var(--cv-text);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px 14px;
+    outline: none;
+    transition: border .2s ease, box-shadow .2s ease, background .2s ease;
+  }
+  input::placeholder, textarea::placeholder{ 
+    color: #8a8a95; 
+}
+  input:focus, textarea:focus{
+    border-color: var(--cv-primary);
+    box-shadow: 0 0 0 3px rgba(255,204,0,.15);
+  }
+  .help{ color: var(--cv-muted); font-size:.9rem; }
+  .checkbox-field{ display:flex; align-items:flex-start; gap:10px; }
+  .checkbox-field input{ margin-top: 4px; transform: translateY(1px); }
+
+  .form-actions{
+    display:flex; align-items:center; gap:12px; margin-top: 18px;
+    flex-wrap: wrap;
+  }
+  .btn{
+    background: var(--cv-primary);
+    color: #111;
+    border: none;
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-weight: 700;
+    cursor: not-allowed;
+    transition: transform .15s ease, filter .15s ease;
+  }
+  .btn[aria-disabled="false"]{
+    cursor: 
+    pointer;
+  }
+  .btn[aria-disabled="false"]:hover{ 
+    transform: translateY(-1px); 
+    filter: brightness(1.05); 
+}
+  .form-note{ 
+    color: var(--cv-muted); 
+    font-size:.95rem; 
+}
+
+  .form-status{ 
+    margin-top: 12px; 
+    min-height: 1.2em; 
+}
+  .form-status.error{ 
+    color: var(--cv-danger); 
+}
+
+  .contact-form :is(input, textarea):user-invalid{
+    border-color: var(--cv-danger);
+    box-shadow: 0 0 0 3px rgba(255,90,90,.15);
+  }
+
+  /* Mobile */
+  @media (max-width: 760px){
+    .form-grid{ grid-template-columns: 1fr; }
+  }
