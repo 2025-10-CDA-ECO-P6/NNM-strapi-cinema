@@ -1,8 +1,8 @@
 // src/api/tmdb/services/movie.ts
 import { factories } from '@strapi/strapi';
 import axios from 'axios';
-import { createTmdbRepository } from '../../../repositories/tmdbRepository';
-import { createFetchers } from '../../../utils/tmdb-fetchers';
+import { createTmdbRepository } from '../repositories/tmdbRepository';
+import { createFetchers } from '../utils/tmdb-fetchers';
 import {
     chunkArray,
     deduplicateMovies,
@@ -13,7 +13,7 @@ import {
     prepareActorData,
     prepareMovieData,
     fetchActorDetailsBatch
-} from '../../../utils/pure-logic-function';
+} from '../utils/pure-logic-function';
 import { mapRawMovieToDTO } from '../types/mapper';
 import { MovieDto } from '../types/types';
 

@@ -1,5 +1,4 @@
-import {ActorDto, MovieDto} from "../api/tmdb/types/types";
-
+import {ActorDto, MovieDto} from "../types/types"
 export function createTmdbRepository(strapi: any) {
     return {
         async loadExistingActors(actorIds: number[]): Promise<Map<number, ActorDto>> {

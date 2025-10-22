@@ -5,7 +5,7 @@ import {
     RawCreditResponse,
     RawCrewMember,
     RawImagesResponse
-} from "../api/tmdb/types/types";
+} from "../types/types";
 
 export const DEFAULT_CONFIG = {
     ACTOR_PARALLEL_LIMIT: 10,

@@ -17,16 +17,6 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
     "prepare": "husky"
   },
-  "jest": {
-    "preset": "ts-jest",
-    "testEnvironment": "node",
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      ".tmp",
-      ".cache",
-      "/dist/"
-    ]
-  },
   "dependencies": {
     "@strapi/plugin-cloud": "5.27.0",
     "@strapi/plugin-users-permissions": "5.27.0",

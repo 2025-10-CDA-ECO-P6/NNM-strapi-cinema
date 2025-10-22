@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { MovieDto } from "../api/tmdb/types/types";
+import { MovieDto } from "../types/types";
 
 export function createFetchers(httpClient: AxiosInstance, baseUrl: string, apiKey: string) {
     const fetchPopularMoviePage = (page: number) =>
