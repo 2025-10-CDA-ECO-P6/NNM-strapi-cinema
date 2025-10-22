@@ -1,13 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Catalogue - CineVerse</title>
+    <!-- MÉTADONNÉES DE BASE -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- INFORMATIONS SEO -->
+    <title>CineVerse — L’univers du cinéma à portée d’écran</title>
+    <meta name="description"
+        content="Découvrez CineVerse, la plateforme qui vous plonge dans l’univers du cinéma : films, acteurs, réalisateurs et histoires de tournage." />
+    <meta name="keywords"
+        content="cinéma, films, acteurs, réalisateurs, CineVerse, catalogue cinéma, bandes-annonces" />
+    <meta name="author" content="Équipe CineVerse · Simplon" />
+
+    <!-- RÉSEAUX SOCIAUX (Open Graph) -->
+    <meta property="og:title" content="CineVerse — L’univers du cinéma à portée d’écran" />
+    <meta property="og:description" content="Explorez le monde du cinéma à travers une expérience immersive." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cineverse.example.com/" />
+    <meta property="og:image" content="./src/assets/CineVerse.png" />
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CineVerse — L’univers du cinéma à portée d’écran" />
+    <meta name="twitter:description" content="Explorez le monde du cinéma à travers une expérience immersive." />
+    <meta name="twitter:image" content="./src/assets/CineVerse.png" />
+
+    <!-- FAVICON  -->
+    <link rel="icon" type="image/jpeg" href="./src/assets/favicon.jpg" />
+
+    <!-- POLICES GOOGLE -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet" />
 
     <!-- Icônes Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- CSS -->
     <link rel="stylesheet" href="./src/styles/styles.css">
@@ -16,80 +51,85 @@
     <link rel="stylesheet" href="./src/styles/catalog.css">
     <link rel="stylesheet" href="./src/styles/movieModal.css">
 
-
+    <!--  BALISES ACCESSIBILITÉ & LANGUE -->
+    <meta name="theme-color" content="#0C0C0C">
+    <!-- Projet étudiant - no index no follow -->
+    <meta name="robots" content="noindex, nofollow">
 </head>
+
 <body>
-<!-- HEADER -->
-<header class="header"></header>
+    <!-- HEADER -->
+    <header class="header"></header>
 
-<!-- MAIN -->
+    <!-- MAIN -->
 
-<main class="catalogue-main">
-    <div class="catalogue-container">
-        <div class="catalogue-header">
-            <h1>Catalogue des films</h1>
-            <p class="catalogue-subtitle">Découvrez notre sélection de films populaires</p>
-        </div>
-
-        <div id="loading" class="loading">
-            <div class="spinner"></div>
-        </div>
-
-        <div id="error-message" class="error-message" style="display: none;"></div>
-
-        <div id="catalogue-grid" class="catalogue-grid">
-        </div>
-
-        <div id="pagination-controls" class="pagination-controls">
-        </div>
-    </div>
-</main>
-
-
-<div id="movie-modal" class="modal">
-    <div class="modal-content">
-        <button class="modal-close" id="modal-close">
-            <i class="fas fa-times"></i>
-        </button>
-        <div class="modal-body">
-            <div class="modal-poster">
-                <img id="modal-image" src="" alt="">
+    <main class="catalogue-main">
+        <div class="catalogue-container">
+            <div class="catalogue-header">
+                <h1>Catalogue des films</h1>
+                <p class="catalogue-subtitle">Découvrez notre sélection de films populaires</p>
             </div>
-            <div class="modal-info">
-                <h2 id="modal-title"></h2>
-                <div class="modal-meta">
-                    <span id="modal-year"></span>
-                    <span id="modal-director"></span>
-                </div>
-                <div class="modal-overview">
-                    <h3>Synopsis</h3>
-                    <p id="modal-description"></p>
-                </div>
-                <div class="modal-details">
-                    <p><strong>Genre:</strong> <span id="modal-genre"></span></p>
-                    <p><strong>Durée:</strong> <span id="modal-duration"></span></p>
-                    <p><strong>Note:</strong> <span id="modal-rating"></span></p>
-                    <div>
-                        <strong>Acteurs:</strong>
-                        <div id="modal-actors">
 
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+            </div>
+
+            <div id="error-message" class="error-message" style="display: none;"></div>
+
+            <div id="catalogue-grid" class="catalogue-grid">
+            </div>
+
+            <div id="pagination-controls" class="pagination-controls">
+            </div>
+        </div>
+    </main>
+
+
+    <div id="movie-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-poster">
+                    <img id="modal-image" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modal-title"></h2>
+                    <div class="modal-meta">
+                        <span id="modal-year"></span>
+                        <span id="modal-director"></span>
+                    </div>
+                    <div class="modal-overview">
+                        <h3>Synopsis</h3>
+                        <p id="modal-description"></p>
+                    </div>
+                    <div class="modal-details">
+                        <p><strong>Genre:</strong> <span id="modal-genre"></span></p>
+                        <p><strong>Durée:</strong> <span id="modal-duration"></span></p>
+                        <p><strong>Note:</strong> <span id="modal-rating"></span></p>
+                        <div>
+                            <strong>Acteurs:</strong>
+                            <div id="modal-actors">
+
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
-<!-- FOOTER -->
-<footer class="cv-footer"></footer>
+    <!-- FOOTER -->
+    <footer class="cv-footer"></footer>
 
-<!-- SCRIPTS -->
-<script src="./src/scripts/header.js"></script>
-<script src="./src/scripts/footer.js"></script>
-<script src="./src/scripts/burger.js"></script>
-<script type="module" src="./src/scripts/ui/catalogue.js"></script>
+    <!-- SCRIPTS -->    
+    <script src="./src/scripts/header.js"></script>
+    <script src="./src/scripts/footer.js"></script>
+    <script src="./src/scripts/burger.js"></script>
+    <script type="module" src="./src/scripts/ui/catalogue.js"></script>
 </body>
+
 </html>
