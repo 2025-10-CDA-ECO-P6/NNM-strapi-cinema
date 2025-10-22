@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
       
       <ul>
-        <li><a href="./index.html" class="active">Accueil</a></li>
+        <li><a href="./index.html">Accueil</a></li>
         <li><a href="./catalogue.html">Catalogue</a></li>
         <li><a href="./artistes.html">Artistes</a></li>
         <li><a href="./apropos.html">À propos</a></li>
