@@ -4,8 +4,6 @@ export default {
   /**
    * An asynchronous register function that runs before
    * your application is initialized.
-   *
-   * This gives you an opportunity to extend code.
    */
   register(/* { strapi }: { strapi: Core.Strapi } */) {},
 
@@ -16,5 +14,18 @@ export default {
    * This gives you an opportunity to set up your data model,
    * run jobs, or perform some special logic.
    */
-  bootstrap(/* { strapi }: { strapi: Core.Strapi } */) {},
+  bootstrap({ strapi }: any) {
+    // Middleware de redirection vers ton frontend
+    strapi.server.use(async (ctx, next) => {
+      // Si on visite la racine "/"
+      if (ctx.request.url === '/' || ctx.request.url === '/index.html') {
+        // 🔁 Redirige vers ta page d'authentification frontend
+        ctx.redirect('http://localhost:5500/frontend/auth.html');
+        return;
+      }
+
+      // Sinon, continuer le flux normal
+      await next();
+    });
+  },
 };
