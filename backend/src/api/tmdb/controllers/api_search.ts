@@ -58,6 +58,7 @@ export default factories.createCoreController("api::tmdb.movie", ({ strapi }) =>
           "last_name",
           "full_name",
           "birth_date",
+          "profile_path",
         ],
         limit: 20,
       });
