@@ -23,6 +23,12 @@
       "type": "string",
       "required": false
     },
+
+    "profile_path" : {
+      "type" : "string",
+      "required" : false
+    },
+
     "tmdb_actor_id": {
       "type": "integer",
       "required": true,
