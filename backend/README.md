@@ -50,15 +50,8 @@ backend/
 ```
 --- 
 
-## Endpoints avec l'api TMDB
-1. Film Populaire  
-GET /movie/popular  
-2. Films par recherche  
-GET /search/movie  
-3. Détails d’un film + crédits  
-GET /movie/{movie_id}  
-4. Détails d’un acteur  
-GET /person/{person_id}  
+## Endpoints
+[Documentation des endpoints](../docs/Endpoints.md)
 
 --- 
 
@@ -121,7 +114,6 @@ Nous utilisons **Husky** pour exécuter automatiquement des vérifications (lint
 Il s’active automatiquement lors des actions Git — aucune commande manuelle n’est nécessaire. 
 
 ##  US-07 — Mise à jour périodique du catalogue
-
 Cette fonctionnalité permet de **mettre à jour automatiquement le catalogue de films** depuis l’API **TMDb** grâce à un **cron job** configuré dans Strapi.
 
 ###  Fonctionnement
@@ -153,7 +145,6 @@ npx jest --coverage
 ```
 
 ###  Vérifications
-
 - **Ajout d’un nouveau film** s’il n’existe pas  
 - **Ignorer les films** déjà présents  
 - **Gestion propre des erreurs API**
