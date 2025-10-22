@@ -31,20 +31,30 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     // Récupère la balise <img> du film vedette
     const featured = document.getElementById("featured-movie");
+    const featuredLink = document.getElementById("featured-link");
 
     // Si img du film absente → affiche placeholder
     const imagePath = lastMovie?.background_image
       ? `https://image.tmdb.org/t/p/w1280${lastMovie.background_image}`
       : "./src/assets/placeholder.webp";
 
+      featured.src = imagePath;
+      featured.alt = lastMovie?.title || "Image non disponible";
+
     // Met a jour img et balise alt
     featured.src = imagePath;
     featured.alt = lastMovie?.title || "Image non disponible";
+
+    // IMG CLIQUABLE - lien vers page détail film
+    if (featuredLink && lastMovie?.tmdb_id) {
+      featuredLink.href = `film.html?id=${lastMovie.tmdb_id}`;
+    }
 
     // Récupère éléments texte bandeau (titre, label, date)
     const overlayTitle = document.querySelector(".featured-title");
     const overlayLabel = document.querySelector(".featured-label");
     const overlayDate = document.querySelector(".featured-date");
+
 
     // Remplis titre + texte du bandeau
     if (overlayTitle) overlayTitle.textContent = lastMovie?.title || "Titre inconnu";
@@ -70,7 +80,7 @@ const validMovies = movies.filter(
 );
 
   // Limite 10 films max
-  validMovies.slice(1, 20).forEach((movie) => {
+  validMovies.slice(1, 10).forEach((movie) => {
     // Pour chaque film → Crée "slide"
     const slide = document.createElement("div");
     slide.classList.add("swiper-slide");
@@ -92,7 +102,9 @@ const validMovies = movies.filter(
       : "./src/assets/placeholder.webp";
     slide.innerHTML = `
       <div class="slide-content">
+      <a href="film.html?id=${movie.tmdb_id}">
         <img src="${poster}" alt="${movie.title}">
+      </a>
         <h3 class="slide-title">
           ${movie.title}
           ${movie.release_date ? `<span class="slide-date"> — Sorti le ${new Date(movie.release_date).toLocaleDateString("fr-FR", {

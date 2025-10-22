@@ -42,9 +42,11 @@ async function loadResults(q) {
     // Template HTML pour chaque film
     return `
       <li class="card">
+      <a href="film.html?id=${m.tmdb_id || m.id}">
         <img src="${poster}" alt="${m.title}">
         <h3>${m.title}</h3>
         ${m.realisator ? `<p><em>Réalisateur : ${m.realisator}</em></p>` : ""}
+      </a>
       </li>
     `;
   });

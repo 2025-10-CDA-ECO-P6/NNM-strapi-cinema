@@ -30,6 +30,7 @@ export default factories.createCoreController("api::tmdb.movie", ({ strapi }) =>
         },
         select: [
           "id",
+          "tmdb_id",       
           "title",
           "release_date",
           "realisator",
