@@ -6,7 +6,8 @@
     "doc": "docs"
   },
   "scripts": {
-    "prepare": "husky || true && husky install"
+    "prepare": "husky || true && husky install",
+    "lint": "eslint . --ext .ts,.js"
   },
   "husky": {
     "hooks": {
