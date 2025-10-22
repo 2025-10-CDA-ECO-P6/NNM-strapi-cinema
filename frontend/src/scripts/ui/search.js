@@ -42,7 +42,7 @@ async function loadResults(q) {
     // Template HTML pour chaque film
     return `
       <li class="card">
-      <a href="film.html?id=${m.tmdb_id || m.id}">
+      <a href="film.html?id=${m.tmdb_id || m.id}" class="film-link">
         <img src="${poster}" alt="${m.title}">
         <h3>${m.title}</h3>
         ${m.realisator ? `<p><em>Réalisateur : ${m.realisator}</em></p>` : ""}
@@ -51,13 +51,26 @@ async function loadResults(q) {
     `;
   });
 
-  // Génère la liste des acteurs (HTML)
-  renderList(acteursList, actors, "Aucun artiste trouvé.", (a) => `
-    <li class="card">
-      ${a.profile_path ? `<img src="${a.profile_path}" alt="${a.name} ${a.last_name || ""}">` : ""}
-      <h3>${a.name} ${a.last_name || ""}</h3>
-    </li>
-  `);
+  // === Acteurs ===
+  renderList(acteursList, actors, "Aucun artiste trouvé.", (a) => {
+    // Vérifie si le profil est défini et non vide
+    const hasPhoto = a.profile_path && a.profile_path.trim() !== "";
+
+    // URL complète 
+    const profile = hasPhoto
+      ? a.profile_path.startsWith("http")
+        ? a.profile_path
+        : `${TMDB_BASE_IMAGE_URL}${a.profile_path}`
+      : null;
+
+    return `
+      <li class="card actor-card">
+        ${hasPhoto ? `<img src="${profile}" alt="${a.full_name || `${a.name} ${a.last_name || ""}`}">` : ""}
+        <h3>${a.full_name || `${a.name} ${a.last_name || ""}`}</h3>
+      </li>
+    `;
+  });
+
 
   // MAJ des compteurs de resultats
   countFilms.textContent = `${moviesWithImage.length} film(s)`;
