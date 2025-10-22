@@ -22,7 +22,7 @@ export default {
 
     options: {
      // 🕒 Tous les jours à 3h du matin (heure serveur)
-      rule: "*/5 * * * *",
+      rule: "0 3 * * *",
     },
   },
 };
