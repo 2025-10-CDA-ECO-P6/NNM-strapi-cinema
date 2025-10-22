@@ -20,7 +20,7 @@ export default {
       // Si on visite la racine "/"
       if (ctx.request.url === '/' || ctx.request.url === '/index.html') {
         // 🔁 Redirige vers ta page d'authentification frontend
-        ctx.redirect('http://localhost:5500/frontend/auth.html');
+        ctx.redirect('http://localhost:5500/frontend/index.html');
         return;
       }
 

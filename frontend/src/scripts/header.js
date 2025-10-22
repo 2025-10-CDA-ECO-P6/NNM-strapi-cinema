@@ -1,15 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
   const headerElement = document.querySelector('.header');
+  if (!headerElement) return;
 
-  // ===== STRUCTURE DU HEADER =====
-  const headerHtmlContent = `
+  headerElement.innerHTML = `
     <div class="header-container">
-      <!-- Logo -->
       <a href="./index.html" class="logo">
         <img src="./src/assets/CineVerse.svg" alt="Logo CineVerse">
       </a>
-      
-      <!-- Navigation principale -->
+
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="./index.html">Accueil</a></li>
@@ -18,55 +16,52 @@ document.addEventListener('DOMContentLoaded', () => {
           <li><a href="./apropos.html">À propos</a></li>
         </ul>
       </nav>
-      
-      <!-- Barre de recherche -->
+
       <div class="search-wrapper">
-        <button class="search-btn" aria-label="Lancer la recherche">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-        <input
-          type="text"
-          class="search-input"
-          placeholder="Rechercher un film, un artiste..."
-          aria-label="Rechercher">
+        <button class="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <input type="text" class="search-input" placeholder="Rechercher un film, un artiste...">
       </div>
-      
-      <!-- Burger menu (mobile) -->
-      <div class="burger">
-        <span></span>
-        <span></span>
-        <span></span>
+
+      <div class="user-section desktop-user">
+        <button id="login-btn" class="user-btn">Se connecter</button>
+        <div id="user-info" class="user-info" style="display:none;">
+          <span id="user-greeting"></span>
+          <button id="logout-btn" class="logout-btn">Se déconnecter</button>
+        </div>
       </div>
+
+      <div class="burger"><span></span><span></span><span></span></div>
     </div>
 
-    <!-- Menu mobile -->
     <div class="mobile-menu">
       <div class="mobile-search">
-        <button class="search-btn">
-          <i class="fas fa-search"></i>
-        </button>
+        <button class="search-btn"><i class="fas fa-search"></i></button>
         <input type="text" placeholder="Rechercher...">
       </div>
-      
       <ul>
         <li><a href="./index.html">Accueil</a></li>
         <li><a href="./catalogue.html">Catalogue</a></li>
         <li><a href="./artistes.html">Artistes</a></li>
         <li><a href="./apropos.html">À propos</a></li>
       </ul>
+
+      <!-- ✅ Bloc utilisateur ajouté pour le menu mobile -->
+      <div class="user-section mobile-user">
+        <button id="login-btn-mobile" class="user-btn">Se connecter</button>
+        <div id="user-info-mobile" class="user-info" style="display:none;">
+          <span id="user-greeting-mobile"></span>
+          <button id="logout-btn-mobile" class="logout-btn">Se déconnecter</button>
+        </div>
+      </div>
     </div>
-    
+
     <hr class="borderheader">
   `;
 
-  // ===== INJECTION DU HEADER =====
-  if (headerElement) {
-    headerElement.innerHTML = headerHtmlContent;
-
-    // === Gestion du menu burger ===
+  setTimeout(() => {
+    // === Menu burger ===
     const burger = headerElement.querySelector('.burger');
     const mobileMenu = headerElement.querySelector('.mobile-menu');
-
     if (burger && mobileMenu) {
       burger.addEventListener('click', () => {
         burger.classList.toggle('active');
@@ -74,67 +69,75 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // === Marquer le lien actif selon la page ===
-    let currentPage = window.location.pathname.split("/").pop();
-
-    // Siracine "/" sans fichier = "index.html"
-    if (currentPage === "" || currentPage === "/") {
-      currentPage = "index.html";
-    }
-
-    headerElement.querySelectorAll(".nav-links a, .mobile-menu a").forEach((link) => {
-      const href = link.getAttribute("href");
-
-      if (href && href.includes(currentPage)) {
+    // === Lien actif ===
+    let currentPage = window.location.pathname.split("/").pop() || "index.html";
+    headerElement.querySelectorAll(".nav-links a, .mobile-menu a").forEach(link => {
+      if (link.getAttribute("href").includes(currentPage)) {
         link.classList.add("active");
       }
     });
 
-    // === Barre de recherche DESKTOP ===
-    const searchWrapper = headerElement.querySelector('.search-wrapper');
-    if (searchWrapper) {
-      const input = searchWrapper.querySelector('.search-input');
-      const button = searchWrapper.querySelector('.search-btn');
-
-      function goToSearch() {
-        const query = input.value.trim();
+    // === Barre de recherche desktop ===
+    const searchInput = headerElement.querySelector('.search-input');
+    const searchButton = headerElement.querySelector('.search-btn');
+    if (searchInput && searchButton) {
+      const goToSearch = () => {
+        const query = searchInput.value.trim();
         if (!query) return;
-        const encoded = encodeURIComponent(query);
+        window.location.href = `./search.html?q=${encodeURIComponent(query)}`;
+      };
+      searchButton.addEventListener('click', goToSearch);
+      searchInput.addEventListener('keydown', (e) => e.key === 'Enter' && goToSearch());
+    }
 
-        // Redirection (index.html et search.html dans le même dossier)
-        window.location.href = "./search.html?q=" + encoded;
+    // === Gestion utilisateur (desktop + mobile) ===
+    const setups = [
+      {
+        login: headerElement.querySelector('#login-btn'),
+        info: headerElement.querySelector('#user-info'),
+        greeting: headerElement.querySelector('#user-greeting'),
+        logout: headerElement.querySelector('#logout-btn')
+      },
+      {
+        login: headerElement.querySelector('#login-btn-mobile'),
+        info: headerElement.querySelector('#user-info-mobile'),
+        greeting: headerElement.querySelector('#user-greeting-mobile'),
+        logout: headerElement.querySelector('#logout-btn-mobile')
+      }
+    ];
+
+    const token = localStorage.getItem('jwt') || localStorage.getItem('token');
+    let username = localStorage.getItem('username');
+
+    if (!username) {
+      try {
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        username = storedUser?.username || storedUser?.email || storedUser?.name;
+      } catch (_) {}
+    }
+
+    setups.forEach(set => {
+      if (!set.login || !set.info || !set.greeting || !set.logout) return;
+
+      if (token && username) {
+        set.login.style.display = 'none';
+        set.info.style.display = 'flex';
+        set.greeting.textContent = `Bonjour, ${username} 👋`;
+      } else {
+        set.login.style.display = 'inline-block';
+        set.info.style.display = 'none';
+        set.login.addEventListener('click', () => {
+          window.location.href = './auth.html';
+        });
       }
 
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        goToSearch();
+      set.logout.addEventListener('click', () => {
+        localStorage.removeItem('jwt');
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
+        localStorage.removeItem('user');
+        window.location.reload();
       });
-
-      input.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          goToSearch();
-        }
-      });
-    }
-
-    // === Barre de recherche MOBILE  ===
-    const mobileSearch = headerElement.querySelector('.mobile-search');
-      if (mobileSearch) {
-
-        const mobileInput = mobileSearch.querySelector('.mobile-input') || mobileSearch.querySelector('input');
-        const mobileButton = mobileSearch.querySelector('.search-btn');
-
-        const goToSearchMobile = () => {
-          const q = mobileInput.value.trim();
-          if (!q) return;
-          window.location.href = `./search.html?q=${encodeURIComponent(q)}`;
-        };
-
-        mobileButton.addEventListener('click', (e) => { e.preventDefault(); goToSearchMobile(); });
-        mobileInput.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter') { e.preventDefault(); goToSearchMobile(); }
-        });
-    }
-  }
+    });
+  }, 50);
 });
