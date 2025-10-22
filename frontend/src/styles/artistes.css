@@ -11,6 +11,11 @@
   padding: 2rem 1rem;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .artiste-title {
   font-size: 5rem;
   text-align: center;
@@ -51,6 +56,7 @@
 
 .artiste-card h3 {
   font-size: 1.1rem;
+  color: #ffcc00;
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
@@ -71,6 +77,8 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
+  align-items: flex-start;
+  min-height: 80vh;
 }
 
 .artiste-detail-left,
@@ -78,8 +86,18 @@
   flex: 1;
 }
 
+.artiste-detail-right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  padding: 1rem;
+  align-content: start;
+}
+
 .artiste-detail-left {
-  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
 }
 
 .film-card-placeholder {
@@ -93,11 +111,18 @@
   font-size: 1rem;
 }
 
-.artiste-detail-right {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding: 1rem;
+.artist-film-title {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 3rem;
+}
+
+.artist-title {
+  margin-top: 1rem;
+  margin-bottom: 1.4rem;
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 3rem;
 }
 
 @media (max-width: 900px) {

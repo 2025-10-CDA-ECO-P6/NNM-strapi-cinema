@@ -1,10 +1,15 @@
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .film-card {
   background: #222;
   color: #eee;
   border-radius: 10px;
   padding: 1rem;
   margin-bottom: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .film-card h4 {

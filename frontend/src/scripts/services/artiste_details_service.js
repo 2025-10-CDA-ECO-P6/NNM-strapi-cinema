@@ -1,5 +1,5 @@
 import { getArtisteById } from "../api/api_artistes.js";
-import { createArtisteCard } from "../ui/artiste_card.js"
+import { createArtisteCard } from "../ui/artiste_card.js";
 import { createFilmCard } from "../ui/film_card.js";
 
 async function showArtisteDetails() {
@@ -19,23 +19,30 @@ async function showArtisteDetails() {
     return;
   }
 
-  // Clear container
   container.innerHTML = "";
 
-  // Création layout 2 colonnes
   const layout = document.createElement("div");
   layout.className = "artiste-detail-layout";
 
-  // Colonne gauche - carte artiste
   const leftCol = document.createElement("div");
   leftCol.className = "artiste-detail-left";
 
-  const artisteCard = createArtisteCard(artiste, false); 
-  leftCol.appendChild(artisteCard);
-
-  // Colonne droite - films associés
   const rightCol = document.createElement("div");
   rightCol.className = "artiste-detail-right";
+
+  const artisteFilmsTitle = document.createElement("h1");
+  artisteFilmsTitle.className = "artist-film-title featured-label";
+  artisteFilmsTitle.textContent = "Films Associés";
+
+  const artisteTitle = document.createElement("h1");
+  artisteTitle.className = "artist-title featured-label";
+  artisteTitle.textContent = "L'Artiste";
+
+  rightCol.appendChild(artisteFilmsTitle);
+  leftCol.appendChild(artisteTitle);
+
+  const artisteCard = createArtisteCard(artiste, false);
+  leftCol.appendChild(artisteCard);
 
   if (artiste.associated_movies && artiste.associated_movies.length > 0) {
     artiste.associated_movies.forEach((movie) => {
@@ -46,11 +53,9 @@ async function showArtisteDetails() {
     rightCol.textContent = "Aucun film associé trouvé.";
   }
 
-  // Ajout des colonnes au layout
   layout.appendChild(leftCol);
   layout.appendChild(rightCol);
 
-  // Ajout du layout au container
   container.appendChild(layout);
 }
 
