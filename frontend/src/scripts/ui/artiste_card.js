@@ -4,10 +4,11 @@ export function createArtisteCard(artiste, isLink = false) {
 
   const container = isLink ? document.createElement("a") : document.createElement("div");
   container.className = isLink ? "artiste-link" : "artiste-container";
-  if (isLink) container.href = `artiste-details.html?id=${artiste.id}`;
+  if (isLink) container.href = `artiste-details.html?id=${artiste.tmdb_actor_id}`;
 
   const img = document.createElement("img");
-  img.src = "./src/assets/placeholder.webp";
+
+  img.src = `https://image.tmdb.org/t/p/w1280${artiste.profile_path}`;
   img.alt = artiste.full_name || "Photo de l'artiste";
 
   const name = document.createElement("h3");
