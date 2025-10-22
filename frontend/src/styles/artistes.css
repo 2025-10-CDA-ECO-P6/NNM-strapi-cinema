@@ -11,6 +11,11 @@
   padding: 2rem 1rem;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .artiste-title {
   font-size: 5rem;
   text-align: center;
@@ -51,6 +56,7 @@
 
 .artiste-card h3 {
   font-size: 1.1rem;
+  color: #ffcc00;
   font-weight: 600;
   margin-bottom: 0.4rem;
 }
@@ -71,8 +77,8 @@
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  align-items: flex-start; 
-  min-height: 80vh;      
+  align-items: flex-start;
+  min-height: 80vh;
 }
 
 .artiste-detail-left,
@@ -85,15 +91,13 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   padding: 1rem;
-  align-content: start; 
+  align-content: start;
 }
 
 .artiste-detail-left {
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   min-height: 80vh;
-
-
 }
 
 .film-card-placeholder {
@@ -106,8 +110,6 @@
   text-align: center;
   font-size: 1rem;
 }
-
-
 
 .artist-film-title {
   grid-column: 1 / -1;
@@ -122,7 +124,6 @@
   text-align: center;
   font-size: 3rem;
 }
-
 
 @media (max-width: 900px) {
   .artiste-list {

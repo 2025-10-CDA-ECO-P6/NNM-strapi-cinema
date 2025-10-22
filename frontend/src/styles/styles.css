@@ -9,7 +9,7 @@
 
 body {
   font-family: "Poppins", Arial, sans-serif;
-  background-color: #0C0C0C ;
+  background-color: #0c0c0c;
   color: #fff;
 }
 
@@ -20,46 +20,45 @@ ul {
 .small-title {
   font-size: 0.8rem !important;
   margin-top: 0.5rem !important;
+  color: #ffcc00;
 }
-
 
 /* ================================
    MAIN CONTENT
 ================================ */
 
 .main-content {
-  background-color: #0C0C0C;
+  background-color: #0c0c0c;
   display: flex;
-  flex-direction: column; 
-  align-items: center; 
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  padding: 10px 0;   
+  padding: 10px 0;
   text-align: center;
 }
 
 .img-placeholder {
   width: 90%;
   height: auto;
-  display: block;   
-  margin: 0 auto; 
+  display: block;
+  margin: 0 auto;
 }
-
 
 /* ================================
    BTN CALL TO ACTION
 ================================ */
 .btn-cta {
   font-family: "Poppins", Arial, sans-serif;
-  background-color: #FFD43B;
+  background-color: #ffd43b;
   color: #000000;
-  padding: 14px 36px; 
+  padding: 14px 36px;
   border: none;
   border-radius: 8px;
   text-decoration: none;
-  font-weight: 700; 
+  font-weight: 700;
   font-size: 1.1rem;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  display: inline-flex; 
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
@@ -88,7 +87,7 @@ ul {
   /* margin: 60px auto; */
   padding-bottom: 50px;
   position: relative;
-  overflow: hidden; 
+  overflow: hidden;
 }
 .swiper-slide {
   position: relative;
@@ -96,8 +95,8 @@ ul {
   cursor: pointer;
   transition: transform 0.3s ease;
   overflow: hidden;
-  width: auto; 
-  flex-shrink: 0; 
+  width: auto;
+  flex-shrink: 0;
 }
 
 .swiper-slide:hover {
@@ -107,13 +106,12 @@ ul {
 /* Image principale */
 .swiper-slide img {
   width: 100%;
-  aspect-ratio: 2 / 3; 
-  object-fit: cover;  
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
   border-radius: 12px;
   display: block;
   transition: opacity 0.3s ease;
 }
-
 
 /* Dégradé sombre pour le texte */
 .slide-content::after {
@@ -235,7 +233,7 @@ ul {
   }
 
   .swiper-slide img {
-    aspect-ratio: 2 / 3; 
+    aspect-ratio: 2 / 3;
     object-fit: cover;
   }
 
@@ -250,17 +248,17 @@ ul {
 
 @media (max-width: 768px) {
   .featured-container {
-    width: 100%;      
-    max-height: none; 
-    height: 90vh;     
-    margin-top: -30px;      
-    border-radius: 0;   
+    width: 100%;
+    max-height: none;
+    height: 90vh;
+    margin-top: -30px;
+    border-radius: 0;
   }
 
   .featured-container img {
     width: 100%;
-    height: 100%;       
-    object-fit: cover;   
+    height: 100%;
+    object-fit: cover;
   }
 
   .featured-overlay {
@@ -269,7 +267,7 @@ ul {
   }
 
   .featured-label {
-    font-size: 2rem;   
+    font-size: 2rem;
   }
 
   .featured-title {
