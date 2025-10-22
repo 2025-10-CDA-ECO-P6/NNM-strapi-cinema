@@ -4,7 +4,7 @@ export function createArtisteCard(artiste, isLink = false) {
 
   const container = isLink ? document.createElement("a") : document.createElement("div");
   container.className = isLink ? "artiste-link" : "artiste-container";
-  if (isLink) container.href = `artiste-details.html?id=${artiste.tmdb_actor_id}`;
+  if (isLink) container.href = `artiste-details.html?id=${artiste.id}`;
 
   const img = document.createElement("img");
 
