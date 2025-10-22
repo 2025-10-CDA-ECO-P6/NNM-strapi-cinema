@@ -17,6 +17,11 @@ ul {
   list-style: none;
 }
 
+.small-title {
+  font-size: 0.8rem !important;
+  margin-top: 0.5rem !important;
+}
+
 
 /* ================================
    MAIN CONTENT
