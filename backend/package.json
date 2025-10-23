@@ -14,8 +14,7 @@
     "lint": "eslint . --ext .ts,.js",
     "test": "jest --detectOpenHandles --forceExit --passWithNoTests",
     "upgrade": "npx @strapi/upgrade latest",
-    "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "prepare": "husky"
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
     "@strapi/plugin-cloud": "5.27.0",
@@ -34,9 +33,12 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.46.1",
     "@typescript-eslint/parser": "^8.46.1",
-    "eslint": "^9.37.0",
-    "husky": "^9.1.7",
+    "eslint": "^9.38.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
     "jest": "^30.2.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
     "ts-jest": "^29.4.5",
     "typescript": "^5"
   },
@@ -46,11 +48,6 @@
   },
   "strapi": {
     "uuid": "00ba17c0-122b-4fb0-b3d1-3bf9d270bf52",
-    "installId": "33ea454e9ce92db33a12380dc1c1886f7ae21f3f9f4b11a8470fe0077b21fb71",
-    "cli": {
-      "commands": {
-        "sync:tmdb": "src/admin/cli/commands/sync-tmdb"
-      }
-    }
+    "installId": "33ea454e9ce92db33a12380dc1c1886f7ae21f3f9f4b11a8470fe0077b21fb71"
   }
 }
