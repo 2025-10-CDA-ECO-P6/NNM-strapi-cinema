@@ -21,7 +21,7 @@ export interface ActorDto {
     tmdb_actor_id: number;
     name: string,
     last_name?  : string | null,
-    birth_date? : Date | null,
+    birth_date? : string | null,
     profile_path? : string | null,
     associated_movies: number[];
 }
