@@ -4,10 +4,16 @@ export function createFilmCard(movie, isLink = true) {
 
   const container = isLink ? document.createElement("a") : document.createElement("div");
   container.className = isLink ? "artiste-link" : "artiste-container";
-  if (isLink) container.href = `film.html?id=${movie.id}`;
+  if (isLink) container.href = `film.html?id=${movie.tmdb_id}`;
 
   const img = document.createElement("img");
-  img.src = movie.poster_image || "./src/assets/placeholder.webp";
+
+  if (movie.poster_image) {
+    img.src = `https://image.tmdb.org/t/p/w1280${movie.poster_image}`;
+  } else {
+    img.src = "./src/assets/placeholder.webp";
+  }
+
   img.alt = movie.title || "Affiche du film";
   img.style.width = "100%";
   img.style.borderRadius = "6px";

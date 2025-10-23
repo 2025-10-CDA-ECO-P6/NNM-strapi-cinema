@@ -1,41 +1,67 @@
-#  Documentation technique — Endpoints
+# Documentation technique — Endpoints
+
+| Méthode  | Endpoint                     | Contrôleur / Handler                 | Auth | Description  |
+|----------|------------------------------|--------------------------------------|------|--------------|
+| GET      | `/tmdb/api_popular`          | `api-popular.apiPopular`             | ❌   | Films les plus récents |
+| GET      | `/tmdb/api_search`           | `api-search.apiSearch`               | ❌   | Recherche de films par mot-clé |
+| GET      | `/tmdb/api_actor`            | `api-actor.getAllActors`             | ❌   | Liste des acteurs |
+| GET      | `/tmdb/api_actor/:id`        | `api-actor.getActorById`             | ❌   | Détails d’un acteur |
+| GET      | `/tmdb/api_catalog`          | `api-catalog.apiCatalog`             | ❌   | Catalogue de films enrichi |
+| GET      | `/tmdb/api_detail_movie/:id` | `api-detail-movie.apiDetailMovie`    | ❌   | Détails d’un film |
+| GET      | `/tmdb/secure-popular`       | `tmdb.securePopular`                 | 🔒   | Version test sécurisée (avec token) |
+
+---
 
 ## `/tmdb/api_popular`
-
-## Description
-L’endpoint `/tmdb/api_popular` est une route **GET** qui permet de récupérer la liste des **films les plus populaires** depuis l’API externe **TMDb**.
-
-## Fonctionnement
-Lors de l’appel, la requête est transmise au contrôleur `api-popular`, qui :
-1. Interroge l’API TMDb pour obtenir les films populaires.
-2. Transforme et filtre les données reçues.
-3. Retourne une réponse JSON contenant les informations essentielles sur les films (titre, date de sortie, description, etc.).
-
-## Sécurité
-Cette route est **publique** (`auth: false`), ce qui signifie qu’elle ne nécessite aucune authentification.
-
-## Utilisation
-Elle est principalement utilisée pour afficher sur le **front-end** une sélection actualisée des films populaires, par exemple sur la page d’accueil ou dans une section “Tendances”.
-
-### Exemple avec `curl` :
+Récupère la liste des **derniers films sortis**.  
 ```bash
-curl -X GET http://localhost:1337/api/tmdb/popular
+curl http://localhost:1337/api/tmdb/api_popular
 ```
 
+---
+
 ## `/tmdb/api_search`
+Recherche de films via le paramètre `q`.  
+```bash
+curl "http://localhost:1337/api/tmdb/api_search?q=inception"
+```
 
-## Description
-L’endpoint `/tmdb/api_search` est une route **GET** utilisée pour interagir avec l’API externe **TMDb**.  
-Elle permet d’effectuer une recherche dynamique de films à partir d’un mot-clé fourni en paramètre.
+---
 
-## Fonctionnement
-Lorsqu’elle est appelée, la requête est transmise au contrôleur `api-search`, qui :
-1. Envoie une requête à l’API TMDb.
-2. Traite et nettoie les données reçues.
-3. Retourne au client une réponse JSON contenant les informations pertinentes sur les films trouvés.
+## `/tmdb/api_actor`
+Retourne la liste des **acteurs populaires**.  
+```bash
+curl http://localhost:1337/api/tmdb/api_actor
+```
 
-## Sécurité
-Cette route ne nécessite **aucune authentification** (`auth: false`), ce qui la rend accessible publiquement.
+---
 
-## Utilisation
-Elle est principalement utilisée par le **front-end** pour permettre une recherche rapide et à jour des films disponibles dans la base de données TMDb.
+## `/tmdb/api_actor/:id`
+Retourne les **détails d’un acteur** (bio, filmographie, etc.).  
+```bash
+curl http://localhost:1337/api/tmdb/api_actor/287
+```
+
+---
+
+## `/tmdb/api_catalog`
+Renvoie un **catalogue complet** de films issus de TMDb.  
+```bash
+curl http://localhost:1337/api/tmdb/api_catalog
+```
+
+---
+
+## `/tmdb/api_detail_movie/:id`
+Retourne les **informations détaillées** d’un film : titre, synopsis, affiche, genres, etc.  
+```bash
+curl http://localhost:1337/api/tmdb/api_detail_movie/550
+```
+
+---
+
+## 🔒 `/tmdb/secure-popular`
+Version sécurisée pour tests internes (auth gérée dans le contrôleur).  
+```bash
+curl http://localhost:1337/api/tmdb/secure-popular
+```

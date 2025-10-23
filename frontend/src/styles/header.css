@@ -1,4 +1,3 @@
-
 /* ================================
    HEADER
 ================================ */
@@ -25,7 +24,7 @@ header {
 .borderheader {
   border: 0;
   height: 2px;
-  background: #A4161A ;
+  background: #A4161A;
   margin-top: 10px;
 }
 
@@ -70,10 +69,10 @@ header {
 /* Style général des liens */
 .nav-links a {
   text-decoration: none;
-  color: #F5F5F5 ;
+  color: #F5F5F5;
   font-weight: 500;
   position: relative;
-  padding-bottom: 4px; 
+  padding-bottom: 4px;
 }
 
 /* Lien survolé */
@@ -98,6 +97,37 @@ header {
   border-radius: 1px;
 }
 
+/* ----- Zone utilisateur ----- */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+#login-btn,
+#logout-btn {
+  background-color: #A4161A;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+#login-btn:hover,
+#logout-btn:hover {
+  background-color: #ffcc00;
+  color: #000;
+}
+
+#user-greeting {
+  color: #ffcc00;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
 /* ----- Burger menu (mobile) ----- */
 .burger {
   display: none;
@@ -109,7 +139,7 @@ header {
 .burger span {
   width: 25px;
   height: 3px;
-  background-color: #FFD43B ;
+  background-color: #FFD43B;
   border-radius: 3px;
   transition: 0.3s;
 }
@@ -143,7 +173,7 @@ header {
   display: flex;
   align-items: center;
   gap: 8px;
-  justify-content: center; 
+  justify-content: center;
   margin-bottom: 10px;
 }
 
@@ -151,7 +181,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  color: #ffcc00; 
+  color: #ffcc00;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
@@ -166,14 +196,13 @@ header {
 }
 
 .mobile-search input {
-  background-color: #F5F5F5 ;
+  background-color: #F5F5F5;
   border: none;
   border-radius: 25px;
   height: 34px;
   width: 280px;
   padding: 0 15px;
 }
-
 
 .mobile-menu ul {
   list-style: none;
@@ -187,7 +216,7 @@ header {
   color: #F5F5F5;
   font-weight: 500;
   text-decoration: none;
-  border-bottom: none; 
+  border-bottom: none;
 }
 
 .mobile-menu a.active {
@@ -204,7 +233,7 @@ header {
   bottom: 0;
   width: 550%;
   height: 3px;
-  background-color: #A4161A ;
+  background-color: #A4161A;
   border-radius: 2px;
 }
 
@@ -221,12 +250,15 @@ header {
   .burger {
     display: flex;
   }
+
+  .user-section {
+    display: none; /* Cache la zone utilisateur sur mobile */
+  }
 }
 
 /* ===========================
    RECHERCHE HEADER
 =========================== */
-
 .search-wrapper {
   display: flex;
   align-items: center;
@@ -239,7 +271,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
-  color: #ffcc00; 
+  color: #ffcc00;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
@@ -256,7 +288,7 @@ header {
 
 /* Champ de recherche blanc */
 .search-input {
-  background-color: #F5F5F5; 
+  background-color: #F5F5F5;
   border: none;
   border-radius: 25px;
   height: 34px;
@@ -277,14 +309,6 @@ header {
   width: 260px;
 }
 
-/* Conteneur header */
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-}
-
 /* ===========================
    RESPONSIVE — CACHER RECHERCHE SUR MOBILE
 =========================== */
@@ -292,4 +316,38 @@ header {
   .search-wrapper {
     display: none;
   }
+}
+/* ======== USER SECTION MOBILE (ajout) ======== */
+.mobile-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.mobile-user #user-greeting-mobile {
+  color: #ffcc00;
+  font-weight: 500;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.mobile-user #login-btn-mobile,
+.mobile-user #logout-btn-mobile {
+  background-color: #A4161A;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.mobile-user #login-btn-mobile:hover,
+.mobile-user #logout-btn-mobile:hover {
+  background-color: #ffcc00;
+  color: #000;
+  transform: scale(1.05);
 }

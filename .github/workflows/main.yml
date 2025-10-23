@@ -17,12 +17,14 @@ jobs:
         with:
           node-version: 20
 
-      - name: Installer les dépendances
+      - name: Installer les dépendances globales (incluant Husky/ESLint)
+        run: npm install
+
+      - name: Installer les dépendances du Backend
         working-directory: ./backend
         run: npm install
 
       - name: Vérifier la qualité du code (lint)
-        working-directory: ./backend
         run: npm run lint
 
       - name: Build du projet
